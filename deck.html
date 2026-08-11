@@ -66,6 +66,13 @@ body{height:100vh;overflow:hidden;background:#1B1B1D;display:flex;align-items:ce
   #hud{display:none}
 }
 @page{size:1280px 720px;margin:0}
+
+#vers{position:fixed;top:18px;left:18px;display:flex;gap:8px;z-index:20;font-family:var(--fc);font-size:13px}
+#vers a{padding:8px 15px;border-radius:999px;background:rgba(255,255,255,.12);color:#fff;text-decoration:none;font-weight:600;backdrop-filter:blur(8px)}
+#vers a:hover{background:rgba(255,255,255,.22)}
+#vers a[aria-current]{background:#fff;color:var(--cb)}
+@media(max-width:900px){#vers{display:none}}
+@media print{#vers{display:none}}
 </style>
 </head>
 <body>
@@ -261,6 +268,12 @@ body{height:100vh;overflow:hidden;background:#1B1B1D;display:flex;align-items:ce
   <p style="font-size:24px;margin-top:26px;color:var(--cb)">Eso sí se puede diseñar.</p>
   <div class="n" style="color:var(--cb)">11</div>
 </div>
+
+<nav id="vers" aria-label="Versiones">
+  <a href="./">Recorrido</a>
+  <a href="completo.html">Casos límite</a>
+  <a href="deck.html" aria-current="page">Presentación</a>
+</nav>
 
 <div id="hud">
   <button onclick="mover(-1)" aria-label="Anterior">‹</button>

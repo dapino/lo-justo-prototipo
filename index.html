@@ -144,9 +144,26 @@ p{font-size:18px;line-height:1.52;color:var(--cb)}
 .ok-ic{width:62px;height:62px;border-radius:50%;background:var(--tq-bg);color:var(--tq);display:flex;align-items:center;justify-content:center;font-size:30px;margin:8px auto 18px}
 .note{font-size:15px;color:var(--g1);line-height:1.45;text-align:center;margin-top:16px}
 .chip{display:inline-flex;align-items:center;gap:7px;background:var(--sf);border-radius:999px;padding:9px 15px;font-size:15px;font-weight:600;color:var(--g1);box-shadow:var(--sh1);margin-bottom:14px}
+
+/* ---------- navegación entre versiones del prototipo ----------
+   Vive fuera del teléfono, en el espacio que sobra en escritorio. No toca
+   ninguna pantalla: es andamiaje de presentación, no producto. */
+#vers{position:fixed;top:24px;left:24px;display:flex;flex-direction:column;gap:8px;z-index:20;font-size:14px}
+#vers b{font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#8A8C8F;margin-bottom:2px}
+#vers a{display:block;padding:9px 16px;border-radius:999px;background:rgba(255,255,255,.82);color:var(--cb);text-decoration:none;font-weight:600;box-shadow:0 1px 3px rgba(44,42,41,.10);transition:background .12s var(--e)}
+#vers a:hover{background:#fff}
+#vers a[aria-current]{background:var(--cb);color:#fff}
+@media(max-width:900px){#vers{display:none}}
 </style>
 </head>
 <body>
+<nav id="vers" aria-label="Versiones">
+  <b>Lo justo</b>
+  <a href="./" aria-current="page">Recorrido</a>
+  <a href="completo.html">Casos límite</a>
+  <a href="deck.html">Presentación</a>
+</nav>
+
 <div id="app">
 
 <!-- ============ 1 · APP NORMAL ============ -->
@@ -341,7 +358,8 @@ p{font-size:18px;line-height:1.52;color:var(--cb)}
     <div class="perm ask">Subir tu límite del celular</div>
     <div class="perm ask">Agregar una cuenta nueva</div>
     <div class="ag mt"><div class="av">≋</div><div class="tx">Nunca te voy a escribir por fuera de la app ni te voy a pedir tus claves.</div></div>
-    <button class="lnk" onclick="go('s0')" style="margin-top:22px">Volver al inicio del prototipo</button>
+    <a class="lnk" href="completo.html" style="margin-top:22px;display:block">Ver los 24 casos límite &rsaquo;</a>
+    <button class="lnk" onclick="go('s0')" style="margin-top:2px">Volver al inicio del prototipo</button>
   </div>
   <div class="nav">
     <button onclick="go('s4')"><span class="i">⌂</span>Inicio</button>

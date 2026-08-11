@@ -870,6 +870,16 @@ body {
 .btn--separado   { margin-top: var(--bc-esp-5); }
 .titulo-lista h2 { margin: 0; }
 
+
+/* Navegación entre versiones del prototipo */
+.vers{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:var(--bc-esp-4)}
+.vers a{
+  display:inline-block;padding:9px 16px;border-radius:var(--bc-radio-pill);
+  background:var(--bc-blanco);color:var(--bc-carbon);text-decoration:none;
+  font-size:15px;font-weight:var(--bc-peso-semi);border:1px solid var(--bc-gris-borde);
+}
+.vers a[aria-current]{background:var(--bc-carbon);color:var(--bc-blanco);border-color:var(--bc-carbon)}
+
 @media (prefers-reduced-motion: reduce) {
   .tel__lienzo { scroll-behavior: auto; }
 }
@@ -1028,7 +1038,7 @@ html { -webkit-text-size-adjust: 100%; }
   <div class="escenario__cab">
     <h1 class="escenario__titulo">Lo justo — v2 · los casos límite</h1>
     <p class="escenario__nota">
-      Los 18 casos de la sección 4, sobre la calibración de v1a. Cada fallo trae
+      Las 22 situaciones de la sección 4, en 24 pantallas, sobre la calibración de v1a. Cada fallo trae
       <strong>qué pasó, de quién fue y qué sigue</strong>, en ese orden y marcado.
       Flechas del teclado para recorrer.
     </p>
