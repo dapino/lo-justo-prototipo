@@ -2,8 +2,8 @@
 
 Mi evaluación del concepto después de haberlo construido. Sin endulzar.
 
-Escrito el 10 de agosto de 2026, con 33 pantallas hechas, los 18 casos límite de la
-sección 4 construidos, y el auditor corrido sobre todo.
+Escrito el 10 de agosto de 2026, con 33 pantallas hechas, las 22 situaciones de la
+sección 4 construidas en 24 pantallas, y el auditor corrido sobre todo.
 
 Lo que sigue no sale de leer los documentos. Sale de haber tenido que escribir cada
 frase que el agente dice y cada pantalla donde algo se rompe.
@@ -54,7 +54,7 @@ una hipótesis que se cayó. Que Persona 3 **no se culpara y desistiera igual** 
 el tipo de detalle que tumba la explicación fácil.
 
 Al construirlo se volvió más fuerte, no más débil. El formato de tres partes —qué pasó,
-de quién fue, qué sigue— aguantó los 18 casos límite. En ninguno tuve que escribir algo
+de quién fue, qué sigue— aguantó las 22 situaciones. En ninguno tuve que escribir algo
 vago. Y en tres casos me obligó a diseñar mejor de lo que habría diseñado suelto:
 
 - En B6, la conexión que se cae, la pregunta "de quién fue" me forzó a decir **"nuestro"**
@@ -264,7 +264,7 @@ verificaban leyendo. Las cinco pasaban la lectura y fallaban la medición.
 ## 4. Qué haría distinto
 
 **1. Empezaría por los casos límite, no por el flujo feliz.**
-Construí seis pantallas bonitas y después 18 casos límite. Los casos límite cambiaron
+Construí seis pantallas bonitas y después 24 de casos límite. Los casos límite cambiaron
 decisiones del flujo feliz —el bloque del agente, el formato del fallo, la posición del
 sello— y tuve que volver atrás. El flujo feliz de esta propuesta es trivial: transferir
 plata está resuelto desde hace veinte años. **Lo único interesante de este concepto son los

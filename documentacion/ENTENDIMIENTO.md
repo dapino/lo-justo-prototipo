@@ -43,7 +43,7 @@ que cambian cómo trabajo:
 |---|---|
 | `v1a-base.html` | Flujo base de 6 pantallas, densidad calibrada por mí |
 | `v1b-base.html` | El mismo flujo con lectura más generosa: menos elementos, más grandes |
-| `v2-casos-limite.html` | Los 18 casos límite de la sección 4, integrados |
+| `v2-casos-limite.html` | Los casos límite de la sección 4, integrados |
 | `v3-completa.html` | Accesibilidad endurecida + mis aportes bajo libertad creativa |
 | `v4-variantes.html` | Las decisiones discutibles construidas de dos formas |
 | `CONTRASTE.md` | Cada par de color verificado contra 4.5:1, con el cálculo |

@@ -217,7 +217,7 @@ no para las dos cifras del límite.
 
 ### Qué tiene
 
-Los 18 casos de la sección 4, en un solo archivo, con un mando de escenarios afuera del
+Las 22 situaciones de la sección 4, en un solo archivo, con un mando de escenarios afuera del
 teléfono para poder saltar a cualquiera durante la grabación.
 
 | Grupo | Casos |
@@ -255,7 +255,7 @@ pueda verificar de un vistazo que ninguna falta.
 | 6 | Área táctil ≥ 56px | **pasa** |
 | 7 | Agente en pasado y primera persona | **pasa** |
 | 8 | Ningún error sin causa y siguiente paso | **pasa** — verificado uno por uno; ver tabla en `OBSERVACIONES.md` |
-| 9 | Todos los casos límite tienen pantalla | **pasa** — 18 de 18 |
+| 9 | Todos los casos límite tienen pantalla | **pasa** — 22 situaciones en 24 pantallas |
 | 10 | Abandonar en cualquier paso y retomar | **pasa con matiz** — el retomar está construido en los 5 puntos de abandono del flujo. Lo que no se puede probar aquí es el caso real: quien no vuelve nunca |
 | 11 | Funciona con texto al 200% | **NO** — es el trabajo de v3 |
 | 12 | No aparece "¿en qué te puedo ayudar?" | **pasa** |
@@ -314,7 +314,7 @@ se vuelve a correr el script.
 
 | Archivo | Tamaño | Qué es |
 |---|---|---|
-| `entregable/LO-JUSTO.html` | 107 KB | **El que se manda al teléfono.** Flujo base + los 18 casos límite, 33 pantallas |
+| `entregable/LO-JUSTO.html` | 107 KB | **El que se manda al teléfono.** Flujo base + los casos límite, 33 pantallas |
 | `entregable/v1a-base.html` | 57 KB | Calibración A, para comparar |
 | `entregable/v1b-base.html` | 52 KB | Calibración B, para comparar |
 
