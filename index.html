@@ -1,0 +1,2120 @@
+<!DOCTYPE html>
+<!-- ARCHIVO GENERADO por prototipo/construir.py · no editar a mano -->
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lo justo — v2 · casos límite</title>
+
+<!-- ============================================================
+     tokens.css INCRUSTADO
+     Copia literal de design-system/tokens.css, generada por
+     prototipo/construir.py. No editar aquí: editar el original
+     y volver a correr el script. La fuente de verdad sigue
+     siendo design-system/tokens.css.
+     ============================================================ -->
+<style id="tokens-incrustados">
+/* ============================================================
+   Sistema de diseño — base Bancolombia
+   Derivado de design-reference/design.md (auditoría del sitio en vivo, 7 ago 2026)
+
+   [CSS]      = extraído con getComputedStyle del sitio real
+   [SVG]      = extraído del SVG decorativo del login
+   [PROPUESTO]= no existe en el sitio, derivado para completar el sistema
+   ============================================================ */
+
+:root {
+
+  /* ---------- Marca ---------- */
+  --bc-amarillo:            #FDDA24; /* [CSS] CTA primario, acentos de marca */
+  --bc-amarillo-svg:        #FDDA23; /* [SVG] misma marca, variante en ilustración */
+  --bc-amarillo-claro:      #FDE773; /* [CSS] fondos suaves, tarjetas promo */
+
+  /* ---------- Neutros ---------- */
+  --bc-negro:               #000000; /* [CSS] h3, botón secundario, nav superior */
+  --bc-carbon:              #2C2A29; /* [CSS] texto principal, header, texto sobre amarillo */
+  --bc-gris-texto:          #808285; /* [CSS] párrafos de cuerpo */
+  --bc-gris-texto-2:        #58595B; /* [CSS] textos auxiliares */
+  --bc-gris-borde:          #D9DADD; /* [CSS] bordes de input, separadores */
+  --bc-gris-deshab:         #CCCCCC; /* [CSS] botón deshabilitado */
+  --bc-gris-deshab-2:       #B3B5B8; /* [CSS] texto deshabilitado */
+  --bc-gris-fondo:          #F4F4F4; /* [CSS] fondo de sección */
+  --bc-gris-fondo-2:        #EEEEEE; /* [CSS] fondo de sección alterno */
+  --bc-gris-fondo-3:        #F2F2F4; /* [CSS] fondo de sección alterno */
+  --bc-gris-pagina:         #F9F9FA; /* [CSS] fondo de página (login) */
+  --bc-blanco:              #FFFFFF;
+
+  /* ---------- Acentos secundarios ---------- */
+  --bc-turquesa:            #66DBB8; /* [CSS] tarjetas promo, categorías FAQ */
+  --bc-lavanda:             #C5ADE5; /* [CSS] tarjetas promo */
+  --bc-melocoton:           #FFB28D; /* [CSS] tarjetas promo */
+  --bc-coral:               #FF7E41; /* [SVG] ilustración, campañas */
+  --bc-purpura:             #9062CD; /* [SVG] ilustración de autenticación */
+
+  /* ---------- Semánticos ----------
+     No se pudieron confirmar en el sitio: los elementos con clase error/alert
+     encontrados eran íconos en gris, no alertas de color.
+     Estos se derivan de la paleta existente. */
+  --bc-exito:               #1F8F6B; /* [PROPUESTO] turquesa oscurecido para contraste AA */
+  --bc-exito-fondo:         #E7F8F2; /* [PROPUESTO] */
+  --bc-alerta:              #B35A1E; /* [PROPUESTO] coral oscurecido */
+  --bc-alerta-fondo:        #FFF1E9; /* [PROPUESTO] */
+  --bc-error:               #C2352B; /* [PROPUESTO] no existe rojo en la marca */
+  --bc-error-fondo:         #FCEDEC; /* [PROPUESTO] */
+  --bc-info:                #5B3E8F; /* [PROPUESTO] púrpura oscurecido */
+  --bc-info-fondo:          #F1EBFA; /* [PROPUESTO] */
+
+  /* ---------- Tipografía ----------
+     Las originales son propietarias y no están disponibles:
+       CIB Sans Bold / CIB Sans Light  → títulos
+       BC Icons                        → iconografía
+     Sustitutos libres, de proporciones cercanas: */
+  /* La pila lleva -apple-system y Segoe UI porque el prototipo se abre en un
+     teléfono, a veces sin conexión: si Google Fonts no carga, cae en la fuente
+     del sistema y no en Times. [AJUSTADO 10 ago 2026] */
+  --bc-font-titulo:  'Manrope', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; /* sustituto de CIB Sans */
+  --bc-font-cuerpo:  'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;        /* [CSS] la real, es libre */
+
+  --bc-peso-light:    300;  /* CIB Sans Light era 200 */
+  --bc-peso-regular:  400;
+  --bc-peso-semi:     600;
+  --bc-peso-bold:     700;
+
+  /* Escala observada en el sitio [CSS] */
+  --bc-txt-saludo:    36px; /* "¡Hola!" del login, en Light */
+  --bc-txt-h1:        32px;
+  --bc-txt-h2:        32px;
+  --bc-txt-h3:        20px;
+  --bc-txt-ui:        16px; /* nav, links, inputs, botones */
+  --bc-txt-cuerpo:    14px;
+  --bc-txt-nota:      12px; /* [PROPUESTO] */
+
+  --bc-alto-linea:      1.5;
+  --bc-alto-linea-tit:  1.2;
+
+  /* ---------- Espaciado ----------
+     [PROPUESTO] — no medido en la auditoría. Escala de 4. */
+  --bc-esp-1:  4px;
+  --bc-esp-2:  8px;
+  --bc-esp-3:  12px;
+  --bc-esp-4:  16px;
+  --bc-esp-5:  24px;
+  --bc-esp-6:  32px;
+  --bc-esp-7:  48px;
+  --bc-esp-8:  64px;
+
+  /* ---------- Radios ---------- */
+  --bc-radio-pill:   999px; /* [CSS] todos los botones del sitio son pill */
+  --bc-radio-card:   12px;  /* [PROPUESTO] */
+  --bc-radio-input:  0px;   /* [CSS] los inputs del login son underline, sin caja */
+  --bc-radio-chip:   999px; /* [CSS] buscador del centro de ayuda */
+
+  /* ---------- Áreas táctiles ----------
+     [PROPUESTO] mínimos de accesibilidad, no del sitio.
+     Relevantes porque 21.7% de personas mayores en Colombia
+     tiene alguna discapacidad certificada (MinSalud). */
+  --bc-tap-min:      44px;
+  --bc-tap-comodo:   56px;
+
+  /* ---------- Bordes ---------- */
+  --bc-borde:        1px solid var(--bc-gris-borde);
+  --bc-borde-fuerte: 2px solid var(--bc-carbon);
+
+  /* ---------- Agregados para el prototipo ----------
+     [PROPUESTO] Todos derivados de la paleta existente. Ninguno inventa un color nuevo:
+     son estados, sombras y superficies que el sitio no expone en CSS.
+     Registrados en prototipo/CHANGELOG.md. */
+
+  --bc-amarillo-presionado: #E9C821; /* [PROPUESTO] amarillo 8% más oscuro, estado :active */
+  --bc-turquesa-oscuro:     #1F8F6B; /* [PROPUESTO] mismo valor que --bc-exito. El turquesa
+                                        #66DBB8 da 1.9:1 contra blanco y no alcanza el 3:1
+                                        que necesita un borde que carga significado */
+
+  /* Superficies */
+  --bc-superficie:      var(--bc-blanco);   /* [PROPUESTO] tarjetas */
+  --bc-superficie-alt:  var(--bc-gris-fondo-2); /* [PROPUESTO] bloque del agente, neutro */
+  --bc-velo:            rgba(44, 42, 41, 0.55); /* [PROPUESTO] fondo de capa modal, carbón 55% */
+
+  /* Sombras — el sitio no las expone; la app sí las usa en la Clave Dinámica */
+  --bc-sombra-1: 0 1px 2px rgba(44, 42, 41, 0.08);            /* [PROPUESTO] */
+  --bc-sombra-2: 0 4px 16px rgba(44, 42, 41, 0.12);           /* [PROPUESTO] tarjeta flotante */
+  --bc-sombra-3: 0 -2px 12px rgba(44, 42, 41, 0.10);          /* [PROPUESTO] barra inferior */
+
+  /* Foco visible — obligatorio para navegación por teclado.
+     Doble anillo: carbón sobre halo blanco, para que se vea también sobre amarillo. */
+  --bc-foco:       var(--bc-carbon);  /* [PROPUESTO] */
+  --bc-foco-halo:  var(--bc-blanco);  /* [PROPUESTO] */
+  --bc-foco-ancho: 3px;               /* [PROPUESTO] */
+
+  /* Duración de las transiciones. Corta a propósito: tiene que correr en teléfonos lentos. */
+  --bc-mov-rapido: 120ms; /* [PROPUESTO] */
+  --bc-mov-medio:  200ms; /* [PROPUESTO] */
+}
+
+/* ============================================================
+   MODO "LO JUSTO"
+   Ajustes para el modo simplificado. Misma marca, otra escala.
+   El principio: la marca no cambia, cambia la densidad.
+   ============================================================ */
+
+.lo-justo {
+  /* Tipografía más grande en todo */
+  --bc-txt-h1:      36px;
+  --bc-txt-h2:      28px;
+  --bc-txt-h3:      22px;
+  --bc-txt-ui:      20px;
+  --bc-txt-cuerpo:  18px;  /* mínimo absoluto en este modo */
+  --bc-txt-nota:    18px;  /* [CORREGIDO 10 ago 2026] valía 16px, lo que contradecía la
+                              restricción 2 de PROTOTIPO-SPEC ("ningún texto por debajo
+                              de 18px") y la etiqueta de nav de COMPONENTES §11.
+                              Gana la restricción: en este modo no hay letra chica.
+                              Ver prototipo/OBSERVACIONES.md, observación 1. */
+
+  /* Áreas táctiles más generosas */
+  --bc-tap-min:     56px;
+  --bc-tap-comodo:  64px;
+
+  /* Más aire entre elementos */
+  --bc-esp-4:  20px;
+  --bc-esp-5:  32px;
+  --bc-esp-6:  40px;
+
+  /* Contraste reforzado: el texto secundario sube a carbón */
+  --bc-gris-texto: var(--bc-carbon);
+}
+
+/* ============================================================
+   REGLAS DEL MODO LO JUSTO — no son estilos, son restricciones
+   ============================================================
+
+   1. Máximo 3 acciones visibles por pantalla.
+   2. Nada de carruseles, banners promocionales ni contenido que rote.
+   3. Todo botón lleva texto. Ningún ícono solo.
+   4. Un solo botón amarillo por pantalla — el amarillo señala LA acción.
+   5. Ningún texto por debajo de 18px.
+   6. Nada de scroll horizontal.
+   7. Toda pantalla dice dónde estás y cómo volver.
+   8. Las cifras de dinero nunca se abrevian: "$150.000", no "$150K".
+   9. Ningún estado de error sin causa y siguiente paso.
+  10. Ninguna sesión expira en silencio.
+
+   ============================================================ */
+
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Manrope:wght@300;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   ESCALA EN rem — para que el texto al 200% haga algo
+
+   Hallazgo de la revisión: con toda la escala en px, subir el
+   tamaño de texto del navegador o del sistema **no cambiaba nada**.
+   El prototipo cumplía 1.4.4 solo por el zoom de página, que
+   escala todo por igual y no es lo mismo.
+
+   Los tokens siguen viniendo de tokens.css: aquí solo se
+   reexpresan en rem, con el equivalente en px al lado.
+   Las áreas táctiles usan min-height, así que crecen solas
+   cuando crece el texto.
+   ============================================================ */
+.lo-justo {
+  --bc-txt-h1:      2.25rem;   /* 36px */
+  --bc-txt-h2:      1.75rem;   /* 28px */
+  --bc-txt-h3:      1.375rem;  /* 22px */
+  --bc-txt-ui:      1.25rem;   /* 20px */
+  --bc-txt-cuerpo:  1.125rem;  /* 18px — mínimo absoluto */
+  --bc-txt-nota:    1.125rem;  /* 18px */
+
+  /* Cifras de dinero. Mínimo 32px = 2rem. */
+  --bc-cifra-1:     2.5rem;    /* 40px */
+  --bc-cifra-2:     2rem;      /* 32px */
+  --bc-cifra-3:     1.375rem;  /* 22px */
+}
+.generosa {
+  --bc-txt-h1:      2.5rem;    /* 40px */
+  --bc-txt-h2:      2rem;      /* 32px */
+  --bc-txt-h3:      1.625rem;  /* 26px */
+  --bc-txt-ui:      1.375rem;  /* 22px */
+  --bc-txt-cuerpo:  1.375rem;  /* 22px */
+  --bc-txt-nota:    1.25rem;   /* 20px */
+  --bc-cifra-1:     2.75rem;   /* 44px */
+  --bc-cifra-2:     2.25rem;   /* 36px */
+}
+
+/* ============================================================
+   v1a — CALIBRACIÓN A
+   Densidad: la que considero correcta. Cuerpo 18px, títulos 28px,
+   3 acciones en el inicio, la información secundaria sigue visible.
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+body {
+  background: var(--bc-gris-fondo);
+  font-family: var(--bc-font-cuerpo);
+  color: var(--bc-carbon);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Escenario de presentación (fuera del teléfono) ---------- */
+.escenario {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--bc-esp-5);
+  padding: var(--bc-esp-5) var(--bc-esp-4) var(--bc-esp-7);
+}
+.escenario__titulo {
+  font-family: var(--bc-font-titulo);
+  font-weight: var(--bc-peso-bold);
+  font-size: 20px;
+  margin: 0;
+  text-align: center;
+}
+.escenario__nota {
+  font-size: 16px;
+  color: var(--bc-gris-texto-2);
+  margin: 6px 0 0;
+  text-align: center;
+  max-width: 60ch;
+  line-height: var(--bc-alto-linea);
+}
+.mando {
+  display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+  max-width: 760px;
+}
+.mando button {
+  font-family: var(--bc-font-cuerpo);
+  font-size: 15px;
+  padding: 8px 14px;
+  border-radius: var(--bc-radio-pill);
+  border: 1px solid var(--bc-gris-borde);
+  background: var(--bc-blanco);
+  color: var(--bc-gris-texto-2);
+  cursor: pointer;
+}
+.mando button[aria-current="true"] {
+  background: var(--bc-carbon);
+  border-color: var(--bc-carbon);
+  color: var(--bc-blanco);
+}
+
+/* ---------- Marco de teléfono ---------- */
+.tel {
+  width: 390px;
+  height: 844px;
+  flex: none;
+  background: var(--bc-blanco);
+  border: 10px solid var(--bc-carbon);
+  border-radius: 44px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: var(--bc-sombra-2);
+}
+.tel__lienzo {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;              /* R7: nunca scroll horizontal */
+  scroll-behavior: smooth;
+}
+
+/* ---------- Tipografía base del modo ---------- */
+.lo-justo { font-size: var(--bc-txt-cuerpo); line-height: var(--bc-alto-linea); }
+.lo-justo p { margin: 0 0 var(--bc-esp-3); }   /* el tamaño se hereda de .lo-justo:
+                                                    poner font-size aquí ganaba por
+                                                    especificidad sobre .cifra */
+.lo-justo h1, .lo-justo h2, .lo-justo h3 {
+  font-family: var(--bc-font-titulo);
+  line-height: var(--bc-alto-linea-tit);
+  margin: 0 0 var(--bc-esp-3);
+}
+.lo-justo h1 { font-size: var(--bc-txt-h2); font-weight: var(--bc-peso-bold); }
+.lo-justo h2 { font-size: var(--bc-txt-h3); font-weight: var(--bc-peso-bold); }
+.lo-justo h3 { font-size: var(--bc-txt-ui); font-weight: var(--bc-peso-semi); }
+
+/* ---------- Pantallas ---------- */
+.pantalla { display: none; min-height: 100%; flex-direction: column; }
+.pantalla[data-activa] { display: flex; }
+.cuerpo { padding: var(--bc-esp-4) var(--bc-esp-4) var(--bc-esp-5); flex: 1; }
+.cuerpo--con-nav { padding-bottom: var(--bc-esp-3); }
+.cuerpo--p1 { padding-top: 68px; }
+
+/* ---------- Arcos de marca (componente 13) ---------- */
+.arcos {
+  position: absolute; top: 0; right: 0;
+  width: 280px; height: 130px;
+  pointer-events: none;              /* decorativos: no ocupan espacio ni reciben foco */
+}
+.pantalla { position: relative; }
+
+/* ---------- Encabezados ---------- */
+.enc {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: var(--bc-esp-4);
+  min-height: 64px;
+}
+.enc--negro { background: var(--bc-carbon); color: var(--bc-blanco); }
+.marca { display: flex; align-items: center; gap: 10px; font-family: var(--bc-font-titulo); font-weight: var(--bc-peso-bold); font-size: var(--bc-txt-ui); letter-spacing: -.01em; }
+.marca__glifo { width: 26px; height: 26px; flex: none; }
+
+.volver {
+  display: inline-flex; align-items: center; gap: 10px;
+  min-height: var(--bc-tap-min);
+  padding: 0 4px;
+  font-size: var(--bc-txt-nota);
+  font-weight: var(--bc-peso-semi);
+  color: var(--bc-carbon);
+  background: none; border: 0; cursor: pointer;
+  font-family: var(--bc-font-cuerpo);
+}
+.enc--negro .volver { color: var(--bc-blanco); }
+.migaja {
+  font-size: var(--bc-txt-nota);
+  color: var(--bc-gris-texto-2);
+  margin: 0;
+}
+
+/* ---------- Saludo ---------- */
+.saludo {
+  font-family: var(--bc-font-titulo);
+  font-weight: var(--bc-peso-light);
+  font-size: var(--bc-txt-h1);
+  line-height: var(--bc-alto-linea-tit);
+  margin: 0 0 var(--bc-esp-2);
+}
+.antetitulo {
+  font-size: var(--bc-txt-nota);
+  font-weight: var(--bc-peso-bold);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--bc-gris-texto-2);
+  margin: 0 0 var(--bc-esp-2);
+}
+
+/* ============================================================
+   EL AGENTE (componente 9)
+   No es una burbuja. Es un bloque de ancho completo dentro del flujo.
+   Cada bloque termina en una línea de bitácora: hora + si movió plata.
+   ============================================================ */
+.agente {
+  border-radius: var(--bc-radio-card);
+  padding: var(--bc-esp-4);
+  margin: 0 0 var(--bc-esp-4);
+  background: var(--bc-superficie-alt);
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: var(--bc-esp-3);
+  align-items: start;
+}
+.agente--explica { background: var(--bc-alerta-fondo); }
+.agente--exito   { background: var(--bc-exito-fondo); }
+
+.agente__marca {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--bc-amarillo);
+  display: grid; place-items: center;
+  flex: none;
+}
+.agente__marca svg { width: 24px; height: 24px; }
+.agente__texto { font-size: var(--bc-txt-cuerpo); margin: 0; }
+.agente__texto strong { font-weight: var(--bc-peso-bold); }
+.agente__texto + .agente__texto { margin-top: var(--bc-esp-3); }
+
+.agente__bitacora {
+  margin: var(--bc-esp-3) 0 0;
+  padding-top: 10px;
+  border-top: 1px solid var(--bc-gris-borde);
+  font-size: var(--bc-txt-nota);
+  color: var(--bc-gris-texto-2);
+  display: flex; flex-wrap: wrap; column-gap: 12px; row-gap: 2px; align-items: baseline;
+}
+.agente__bitacora b { font-weight: var(--bc-peso-bold); color: var(--bc-carbon); }
+
+/* Sello de identidad (componente 10) */
+.sello {
+  display: flex; gap: 10px; align-items: flex-start;
+  font-size: var(--bc-txt-nota);
+  color: var(--bc-gris-texto-2);
+  margin: calc(var(--bc-esp-4) * -1 + 4px) 0 var(--bc-esp-4);
+  padding: 0 4px;
+  line-height: 1.4;
+}
+.sello svg { width: 18px; height: 18px; flex: none; margin-top: 2px; }
+
+/* ---------- Bloques de estado ---------- */
+.aviso {
+  border-radius: var(--bc-radio-card);
+  padding: var(--bc-esp-4);
+  margin: 0 0 var(--bc-esp-4);
+  font-size: var(--bc-txt-cuerpo);
+  display: grid; grid-template-columns: 24px 1fr; gap: var(--bc-esp-3);
+  align-items: start;
+}
+.aviso--exito { background: var(--bc-exito-fondo); color: var(--bc-carbon); }
+.aviso svg { width: 24px; height: 24px; margin-top: 1px; }
+.aviso p { margin: 0; }
+.aviso p + p { margin-top: 6px; }
+
+/* ---------- Tarjetas ---------- */
+.tarjeta {
+  background: var(--bc-superficie);
+  border: var(--bc-borde);
+  border-radius: var(--bc-radio-card);
+  padding: var(--bc-esp-3) var(--bc-esp-4);
+  margin: 0 0 10px;
+}
+.tarjeta--destacada { border: 2px solid var(--bc-amarillo); }
+.tarjeta--saldo {
+  background: var(--bc-carbon);
+  border-color: var(--bc-carbon);
+  color: var(--bc-blanco);
+  padding: var(--bc-esp-4);
+}
+.etiqueta {
+  font-size: var(--bc-txt-cuerpo);
+  color: var(--bc-gris-texto);
+  margin: 0 0 6px;
+}
+.tarjeta--saldo .etiqueta { color: var(--bc-blanco); }
+.cifra {
+  font-family: var(--bc-font-titulo);
+  font-weight: var(--bc-peso-bold);
+  font-size: var(--bc-cifra-1);               /* R2: cifras de dinero mínimo 32px */
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  margin: 0;
+  white-space: nowrap;
+}
+.cifra--media { font-size: var(--bc-cifra-2); }
+.cifra--chica { font-size: var(--bc-cifra-3); }
+
+/* Fila secundaria del inicio: "Guardado" no es una tarjeta, es una fila */
+.fila-sec {
+  padding: var(--bc-esp-3) 0 var(--bc-esp-4);
+  border-bottom: 1px solid var(--bc-gris-borde);
+  margin: 0 0 var(--bc-esp-4);
+}
+.fila-sec__linea { display: flex; align-items: baseline; justify-content: space-between; gap: var(--bc-esp-3); }
+.fila-sec .etiqueta { margin: 0; }
+.fila-sec .nota { margin: 4px 0 0; }
+.h-seccion { margin: 0 0 var(--bc-esp-3); }
+.nota {
+  font-size: var(--bc-txt-nota);
+  color: var(--bc-gris-texto-2);
+  margin: 8px 0 0;
+  line-height: 1.4;
+}
+.tarjeta--saldo .nota { color: var(--bc-blanco); }
+
+/* ---------- Filas de acción (componente 4) ---------- */
+.accion {
+  display: flex; align-items: center; gap: var(--bc-esp-4);
+  width: 100%;
+  min-height: 72px;                        /* R3: área táctil (mínimo 56px) */
+  padding: var(--bc-esp-4);
+  margin: 0 0 10px;
+  background: var(--bc-superficie);
+  border: 1px solid var(--bc-gris-texto-2);   /* control: 7.01:1, no 1.40:1 */
+  border-radius: var(--bc-radio-card);
+  text-align: left;
+  font-family: var(--bc-font-cuerpo);
+  font-size: var(--bc-txt-ui);
+  font-weight: var(--bc-peso-semi);
+  color: var(--bc-carbon);
+  cursor: pointer;
+}
+.accion svg { width: 28px; height: 28px; flex: none; }
+.accion__flecha { margin-left: auto; width: 20px; height: 20px; }
+.accion:active { background: var(--bc-gris-fondo); }
+
+/* ---------- Botones (componentes 1, 2, 3) ---------- */
+.btn {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  width: 100%;
+  min-height: var(--bc-tap-min);            /* 56px en modo lo-justo */
+  padding: 14px var(--bc-esp-5);
+  border-radius: var(--bc-radio-pill);
+  font-family: var(--bc-font-cuerpo);
+  font-size: var(--bc-txt-ui);
+  font-weight: var(--bc-peso-semi);
+  cursor: pointer;
+  border: 2px solid transparent;
+  margin: 0 0 10px;
+}
+.btn--primario { background: var(--bc-amarillo); color: var(--bc-carbon); }  /* nunca texto blanco */
+.btn--primario:active { background: var(--bc-amarillo-presionado); }
+.btn--secundario { background: transparent; border-color: var(--bc-carbon); color: var(--bc-carbon); }
+.btn--texto {
+  background: none; border: 0; text-decoration: underline;
+  color: var(--bc-carbon); font-size: var(--bc-txt-ui);
+  min-height: var(--bc-tap-min);
+}
+
+/* ---------- Listas de registro (P5) ---------- */
+.registro { list-style: none; margin: 0; padding: 0; }
+.registro li {
+  padding: var(--bc-esp-4) 0;
+  border-bottom: 1px solid var(--bc-gris-borde);
+}
+.registro li:last-child { border-bottom: 0; }
+.registro__hora {
+  font-size: var(--bc-txt-nota);
+  font-weight: var(--bc-peso-bold);
+  color: var(--bc-gris-texto-2);
+  margin: 0 0 6px;
+}
+.registro__que { font-size: var(--bc-txt-cuerpo); margin: 0 0 8px; }
+.marbete {
+  display: inline-block;
+  font-size: var(--bc-txt-nota);
+  font-weight: var(--bc-peso-semi);
+  padding: 4px 12px;
+  border-radius: var(--bc-radio-chip);
+  border: 1px solid var(--bc-gris-borde);
+  background: var(--bc-gris-fondo);
+  color: var(--bc-gris-texto-2);
+}
+.marbete--plata { border-color: var(--bc-carbon); color: var(--bc-carbon); }
+.dia {
+  font-size: var(--bc-txt-nota);
+  font-weight: var(--bc-peso-bold);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--bc-gris-texto-2);
+  margin: var(--bc-esp-5) 0 0;
+}
+
+/* ---------- Listas de autonomía (P6) ---------- */
+.limites { list-style: none; margin: 0 0 var(--bc-esp-5); padding: 0; }
+.limites li {
+  padding: var(--bc-esp-3) 0 var(--bc-esp-3) var(--bc-esp-4);
+  font-size: var(--bc-txt-cuerpo);
+}
+.limites--solo li      { border-left: 4px solid var(--bc-turquesa-oscuro); }
+.limites--pregunto li  { border-left: 4px solid var(--bc-amarillo); }
+.titulo-lista { display: flex; align-items: center; gap: 10px; margin-bottom: var(--bc-esp-3); }
+.titulo-lista svg { width: 22px; height: 22px; }
+
+/* ---------- Filas de resumen (P4) ---------- */
+.resumen { border-top: 1px solid var(--bc-gris-borde); margin: 0 0 var(--bc-esp-5); }
+.resumen__fila {
+  display: flex; justify-content: space-between; align-items: baseline; gap: var(--bc-esp-4);
+  padding: var(--bc-esp-4) 0;
+  border-bottom: 1px solid var(--bc-gris-borde);
+}
+.resumen__et { font-size: var(--bc-txt-cuerpo); color: var(--bc-gris-texto-2); margin: 0; }
+.resumen__va { font-size: var(--bc-txt-ui); font-weight: var(--bc-peso-semi); margin: 0; text-align: right; }
+.resumen__va--cifra { font-size: var(--bc-cifra-2); font-family: var(--bc-font-titulo); font-weight: var(--bc-peso-bold); white-space: nowrap; }
+
+/* ---------- Comprobante (componente 6) ---------- */
+.comprobante {
+  background: var(--bc-superficie);
+  border: var(--bc-borde);
+  border-top: 4px solid var(--bc-amarillo);
+  border-radius: var(--bc-radio-card);
+  padding: var(--bc-esp-5) var(--bc-esp-4) var(--bc-esp-4);
+  margin: 0 0 var(--bc-esp-4);
+  box-shadow: var(--bc-sombra-1);
+}
+.comprobante__num {
+  font-family: var(--bc-font-cuerpo);
+  font-size: var(--bc-txt-nota);
+  letter-spacing: .06em;
+  color: var(--bc-gris-texto-2);
+  margin: 0 0 var(--bc-esp-4);
+}
+.comprobante .resumen__fila { padding: 12px 0; }
+.resumen__va--sec { font-size: var(--bc-txt-cuerpo); font-weight: var(--bc-peso-regular); }
+.dentado {
+  height: 12px;
+  margin: var(--bc-esp-4) calc(var(--bc-esp-4) * -1) 0;
+  background: radial-gradient(circle at 6px 12px, var(--bc-gris-fondo) 6px, transparent 6.5px) repeat-x;
+  background-size: 16px 12px;
+}
+
+/* ---------- Campos (componente 7) ---------- */
+.campo { margin: 0 0 var(--bc-esp-4); }
+.campo label { display: block; font-size: var(--bc-txt-cuerpo); font-weight: var(--bc-peso-semi); margin: 0 0 6px; }
+.campo__ayuda { font-size: var(--bc-txt-nota); color: var(--bc-gris-texto-2); margin: 0 0 8px; }
+.campo input {
+  width: 100%; min-height: var(--bc-tap-min);
+  padding: 12px var(--bc-esp-3);
+  font-family: var(--bc-font-cuerpo); font-size: var(--bc-txt-ui);
+  color: var(--bc-carbon);
+  border: 1px solid var(--bc-gris-texto-2); border-radius: 8px;   /* control: 7.01:1 */
+  background: var(--bc-blanco);
+}
+
+/* ---------- Navegación inferior (componente 11) ---------- */
+.nav {
+  position: sticky; bottom: 0;
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  background: var(--bc-blanco);
+  border-top: 1px solid var(--bc-gris-borde);
+  box-shadow: var(--bc-sombra-3);
+}
+.nav button {
+  min-height: 72px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+  background: none; border: 0; cursor: pointer;
+  font-family: var(--bc-font-cuerpo);
+  font-size: var(--bc-txt-nota);
+  font-weight: var(--bc-peso-semi);
+  color: var(--bc-gris-texto-2);
+}
+.nav button svg { width: 24px; height: 24px; }
+.nav button[aria-current="page"] { background: var(--bc-amarillo); color: var(--bc-carbon); }
+
+/* ---------- Foco visible ---------- */
+:focus-visible {
+  outline: var(--bc-foco-ancho) solid var(--bc-foco);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 calc(var(--bc-foco-ancho) + 2px) var(--bc-foco-halo);
+}
+
+
+/* ============================================================
+   v2 — componentes de los casos límite
+   ============================================================ */
+
+.escenario {
+  display: grid;
+  grid-template-columns: 300px 410px;
+  align-items: start;
+  justify-content: center;
+  gap: var(--bc-esp-6);
+  padding: var(--bc-esp-5) var(--bc-esp-4);
+}
+.escenario__cab { grid-column: 1 / -1; text-align: center; }
+.mando {
+  display: block; text-align: left; max-width: none;
+  position: sticky; top: var(--bc-esp-4);
+  max-height: calc(100vh - 48px); overflow-y: auto;
+}
+@media (max-width: 780px) {
+  .escenario { grid-template-columns: 1fr; }
+  .mando { position: static; max-height: none; text-align: center; }
+}
+.mando__grupo {
+  display: block; width: 100%;
+  margin: var(--bc-esp-3) 0 6px;
+  font-size: 13px; font-weight: var(--bc-peso-bold);
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--bc-gris-texto-2);
+}
+.mando button { margin: 3px; text-align: left; }
+
+/* --- El fallo en tres partes ---------------------------------
+   Siempre el mismo orden y las mismas etiquetas. Que sea repetitivo
+   es la gracia: se aprende dónde mirar. Persona 3 nunca supo qué pasó. */
+.tres-partes { margin: 0; display: grid; grid-template-columns: 1fr; gap: 0; }
+.tres-partes dt {
+  font-size: var(--bc-txt-nota); font-weight: var(--bc-peso-bold);
+  color: var(--bc-gris-texto-2); margin: 0 0 2px;
+}
+.tres-partes dd { margin: 0 0 var(--bc-esp-3); font-size: var(--bc-txt-cuerpo); }
+.tres-partes dd:last-of-type { margin-bottom: 0; }
+
+/* --- Avisos neutros: un fallo del banco no es una alarma roja --- */
+.aviso--neutro { background: var(--bc-gris-fondo-2); }
+
+/* --- Clave dinámica (componente 12) --------------------------- */
+.clave {
+  background: var(--bc-blanco); border: var(--bc-borde); border-radius: var(--bc-radio-card);
+  padding: var(--bc-esp-4); margin: 0 0 var(--bc-esp-4); box-shadow: var(--bc-sombra-2);
+  text-align: center;
+}
+.clave__et { font-size: var(--bc-txt-nota); color: var(--bc-gris-texto-2); margin: 0 0 6px; }
+.clave__num {
+  font-family: var(--bc-font-titulo); font-weight: var(--bc-peso-bold);
+  font-size: var(--bc-cifra-1); letter-spacing: .12em; margin: 0 0 8px;
+}
+.clave__tiempo { font-size: var(--bc-txt-nota); color: var(--bc-gris-texto-2); margin: 0; }
+.clave__barra {
+  display: block; height: 6px; margin-top: 8px; border-radius: var(--bc-radio-pill);
+  background: var(--bc-gris-texto-2); overflow: hidden;   /* amarillo sobre esto: 4.90:1 */
+}
+.clave__barra span { display: block; height: 100%; background: var(--bc-amarillo); }
+
+/* --- Salidas: nunca un callejón sin salida -------------------- */
+.salidas {
+  border: var(--bc-borde); border-radius: var(--bc-radio-card);
+  padding: var(--bc-esp-4); margin: 0 0 var(--bc-esp-4);
+}
+.salidas__t { font-weight: var(--bc-peso-bold); margin: 0 0 var(--bc-esp-3); }
+.lista-num { margin: 0; padding-left: 22px; }
+.lista-num li { margin: 0 0 var(--bc-esp-3); }
+.lista-num li:last-child { margin-bottom: 0; }
+.lista-simple { list-style: none; margin: 0 0 var(--bc-esp-4); padding: 0; }
+.lista-simple li {
+  padding: var(--bc-esp-3) 0 var(--bc-esp-3) var(--bc-esp-4);
+  border-left: 4px solid var(--bc-gris-borde);
+  margin-bottom: 6px;
+}
+
+/* --- Contador de sesión --------------------------------------- */
+.contador { text-align: center; margin: 0 0 var(--bc-esp-4); font-size: var(--bc-txt-cuerpo); }
+.contador__num {
+  display: block; font-family: var(--bc-font-titulo); font-weight: var(--bc-peso-bold);
+  font-size: var(--bc-cifra-1); line-height: 1.1;
+}
+.paso { font-family: var(--bc-font-titulo); font-weight: var(--bc-peso-bold); font-size: var(--bc-cifra-3); margin: 0; }
+
+/* --- Comparar dos cifras (límite, saldo) ---------------------- */
+.comparar { margin: 0 0 var(--bc-esp-4); }
+.comparar__fila {
+  display: flex; align-items: baseline; justify-content: space-between; gap: var(--bc-esp-3);
+  padding: var(--bc-esp-3) 0; border-bottom: 1px solid var(--bc-gris-borde);
+}
+.comparar__fila .etiqueta { margin: 0; }
+.comparar__fila--tope { border-bottom: 3px solid var(--bc-amarillo); }
+
+/* --- Alerta de fraude: carbón sobre amarillo claro, nunca rojo -- */
+.alerta-fraude {
+  display: grid; grid-template-columns: 26px 1fr; gap: var(--bc-esp-3);
+  background: var(--bc-amarillo-claro); color: var(--bc-carbon);
+  border-radius: var(--bc-radio-card); padding: var(--bc-esp-4);
+  margin: 0 0 var(--bc-esp-4);
+}
+.alerta-fraude svg { width: 26px; height: 26px; }
+.alerta-fraude p { margin: 0; }
+.alerta-fraude p + p { margin-top: 6px; }
+.alerta-fraude .nota { color: var(--bc-carbon); }
+.alerta-fraude--grande p:first-child { font-size: var(--bc-txt-ui); }
+
+/* --- Espera con nombre ---------------------------------------- */
+.espera {
+  border: var(--bc-borde); border-radius: var(--bc-radio-card);
+  padding: var(--bc-esp-4); margin: 0 0 var(--bc-esp-4);
+}
+.espera__et { font-size: var(--bc-txt-nota); color: var(--bc-gris-texto-2); margin: 0 0 6px; }
+.espera__num {
+  font-family: var(--bc-font-titulo); font-weight: var(--bc-peso-bold);
+  font-size: var(--bc-cifra-2); line-height: 1.15; margin: 0 0 8px;
+}
+.espera__que { font-size: var(--bc-txt-ui); font-weight: var(--bc-peso-semi); margin: 0 0 8px; }
+.espera__nota { font-size: var(--bc-txt-nota); color: var(--bc-gris-texto-2); margin: 0; }
+.barra {
+  height: 8px; margin-top: var(--bc-esp-3); border-radius: var(--bc-radio-pill);
+  background: var(--bc-gris-borde); overflow: hidden;
+}
+.barra span { display: block; height: 100%; width: 45%; background: var(--bc-carbon); }
+
+/* --- Certeza sobre el dinero ---------------------------------- */
+.certeza {
+  border-radius: var(--bc-radio-card); padding: var(--bc-esp-4);
+  margin: 0 0 var(--bc-esp-4); border: 2px solid var(--bc-carbon);
+}
+.certeza--no { background: var(--bc-exito-fondo); }
+.certeza--si { background: var(--bc-gris-fondo-2); }
+.certeza__t { font-size: var(--bc-txt-cuerpo); font-weight: var(--bc-peso-bold); margin: 0 0 4px; }
+.certeza__cifra {
+  font-family: var(--bc-font-titulo); font-weight: var(--bc-peso-bold);
+  font-size: var(--bc-cifra-1); line-height: 1.1; margin: 0 0 6px; white-space: nowrap;
+}
+.certeza__nota { font-size: var(--bc-txt-nota); color: var(--bc-gris-texto-2); margin: 0; }
+
+/* --- La palabra: sello de identidad verificable ---------------- */
+.palabra {
+  border: 2px solid var(--bc-carbon); border-radius: var(--bc-radio-card);
+  padding: var(--bc-esp-4); margin: 0 0 var(--bc-esp-4); text-align: center;
+}
+.palabra__et { font-size: var(--bc-txt-nota); color: var(--bc-gris-texto-2); margin: 0 0 6px; }
+.palabra__val {
+  font-family: var(--bc-font-titulo); font-weight: var(--bc-peso-bold);
+  font-size: var(--bc-cifra-2); letter-spacing: .1em; margin: 0 0 8px;
+}
+.palabra__nota { font-size: var(--bc-txt-nota); color: var(--bc-gris-texto-2); margin: 0; }
+
+/* --- Confirmación reforzada ----------------------------------- */
+.confirmar-doble { margin: 0 0 var(--bc-esp-4); }
+.casilla {
+  display: flex; gap: var(--bc-esp-3); align-items: flex-start;
+  min-height: var(--bc-tap-min); padding: var(--bc-esp-3);
+  border: 1px solid var(--bc-gris-texto-2); border-radius: var(--bc-radio-card); cursor: pointer;
+}
+.casilla input { width: 32px; height: 32px; flex: none; margin: 0; accent-color: var(--bc-carbon); }
+/* El área táctil de la casilla es la <label> entera (56px), no el cuadrito.
+   La etiqueta envuelve al input, así que tocar cualquier parte lo activa. */
+
+/* --- Puntos de retoma ----------------------------------------- */
+.pasos { list-style: none; margin: 0; padding: 0; }
+.paso-btn {
+  display: flex; align-items: center; gap: var(--bc-esp-3); width: 100%;
+  min-height: var(--bc-tap-min); padding: var(--bc-esp-3) var(--bc-esp-4);
+  margin: 0 0 10px; background: var(--bc-superficie);
+  border: 1px solid var(--bc-gris-texto-2);   /* control: 7.01:1 */
+  border-radius: var(--bc-radio-card); text-align: left;
+  font-family: var(--bc-font-cuerpo); font-size: var(--bc-txt-cuerpo);
+  color: var(--bc-carbon); cursor: pointer;
+}
+.paso-btn__n {
+  width: 32px; height: 32px; flex: none; border-radius: 50%;
+  background: var(--bc-amarillo); color: var(--bc-carbon);
+  display: grid; place-items: center;
+  font-weight: var(--bc-peso-bold); font-size: var(--bc-txt-nota);
+}
+
+
+/* --- Consistencia: variantes que estaban como estilo en línea --------
+   Cada una aparecía escrita a mano en una o dos pantallas. Al ser clase,
+   el mismo elemento se ve igual en todas partes. --- */
+.migaja--claro   { color: var(--bc-blanco); }
+.resumen__sec    { display: block; font-weight: var(--bc-peso-regular);
+                   font-size: var(--bc-txt-nota); color: var(--bc-gris-texto-2); }
+.resumen--pegado { margin-bottom: 0; }
+.btn--separado   { margin-top: var(--bc-esp-5); }
+.titulo-lista h2 { margin: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .tel__lienzo { scroll-behavior: auto; }
+}
+
+/* ============================================================
+   TECHO DE LA ESCALA — para que el 200% no rompa el layout
+
+   A 200% el cuerpo pasa de 18px a 36px, que es lo que se busca.
+   Pero lo que YA era grande (cifras de 40px, saludos de 36px) al
+   doblar se sale de la pantalla y se corta. Eso sí sería pérdida
+   de contenido.
+
+   Solución: las cifras y los títulos crecen hasta un techo y ahí
+   se quedan. Ninguna baja del mínimo del sistema — la cifra más
+   pequeña con techo queda en 32px, que es justo el mínimo — y
+   ningún contenido se pierde ni se corta.
+   ============================================================ */
+.lo-justo .cifra           { font-size: min(var(--bc-cifra-1), 52px); }
+.lo-justo .cifra--media    { font-size: min(var(--bc-cifra-2), 44px); }
+.lo-justo .cifra--chica    { font-size: min(var(--bc-cifra-3), 32px); }
+.lo-justo .certeza__cifra  { font-size: min(var(--bc-cifra-1), 52px); }
+.lo-justo .clave__num      { font-size: min(var(--bc-cifra-1), 46px); }
+.lo-justo .palabra__val    { font-size: min(var(--bc-cifra-2), 40px); }
+.lo-justo .contador__num   { font-size: min(var(--bc-cifra-1), 52px); }
+.lo-justo .espera__num     { font-size: min(var(--bc-cifra-2), 40px); }
+.lo-justo .resumen__va--cifra { font-size: min(var(--bc-cifra-2), 42px); }
+.lo-justo .paso            { font-size: min(var(--bc-cifra-3), 32px); }
+.lo-justo .saludo          { font-size: min(var(--bc-txt-h1), 46px); }
+.lo-justo h1               { font-size: min(var(--bc-txt-h2), 40px); }
+.lo-justo h2               { font-size: min(var(--bc-txt-h3), 34px); }
+
+/* Ninguna palabra larga desborda su caja al crecer el texto */
+.lo-justo h1, .lo-justo h2, .lo-justo p, .lo-justo li,
+.lo-justo dd, .lo-justo dt, .lo-justo button, .lo-justo label,
+.lo-justo span { overflow-wrap: break-word; }
+
+/* Las cifras dejan de ser inquebrantables cuando ya no caben:
+   parten después del signo peso, nunca dentro del número. */
+.lo-justo .cifra, .lo-justo .certeza__cifra,
+.lo-justo .resumen__va--cifra { white-space: normal; }
+
+
+/* Las filas de etiqueta+valor se parten en dos líneas antes que desbordar.
+   Es lo último que faltaba para que el 200% no saque nada de la pantalla. */
+.lo-justo .resumen__fila,
+.lo-justo .fila-sec__linea,
+.lo-justo .comparar__fila,
+.lo-justo .enc { flex-wrap: wrap; }
+.lo-justo .resumen__va { text-align: left; }
+
+
+
+/* ============================================================
+   TELÉFONO REAL
+   Este archivo se abre en un celular, no solo en el navegador
+   del escritorio. Por debajo de 780px el marco desaparece y la
+   app ocupa la pantalla completa.
+
+   Probado a 360px, 390px y 430px de ancho.
+   ============================================================ */
+
+html { -webkit-text-size-adjust: 100%; }
+
+/* El desplegable del mando solo aparece en pantalla angosta */
+.caja-mando > summary { display: none; }
+
+@media (max-width: 779px) {
+
+  .escenario {
+    display: block;
+    padding: 0;
+    gap: 0;
+    min-height: 0;
+    grid-template-columns: none;
+  }
+  .escenario__cab { display: none; }
+
+  /* Cabecera del mando: 52px de alto, área táctil suficiente */
+  .caja-mando > summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 56px;
+    padding: 0 var(--bc-esp-4);
+    background: var(--bc-carbon);
+    color: var(--bc-blanco);
+    font-family: var(--bc-font-cuerpo);
+    font-size: var(--bc-txt-cuerpo);
+    font-weight: var(--bc-peso-semi);
+    cursor: pointer;
+    list-style: none;
+  }
+  .caja-mando > summary::-webkit-details-marker { display: none; }
+  .caja-mando > summary::marker { content: ""; }
+
+  .mando {
+    position: static;
+    display: block;
+    max-width: none;
+    max-height: 50vh;
+    max-height: 50dvh;
+    overflow-y: auto;
+    padding: var(--bc-esp-3);
+    background: var(--bc-gris-fondo);
+    border-bottom: 1px solid var(--bc-gris-borde);
+    text-align: left;
+  }
+  /* Área táctil real de 56px en cada destino del mando, con separación */
+  .mando button {
+    display: block;
+    width: 100%;
+    min-height: 56px;
+    margin: 0 0 8px;
+    font-size: var(--bc-txt-cuerpo);
+    text-align: left;
+  }
+
+  /* Sin marco: la app es la pantalla */
+  .tel {
+    width: 100%;
+    max-width: none;
+    height: 100vh;
+    height: calc(100dvh - 56px);
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+/* A 360px el contenido sigue sin cortarse ni desbordar */
+@media (max-width: 380px) {
+  .cifra          { font-size: 36px; }
+  .cifra--media   { font-size: 28px; }
+  .certeza__cifra { font-size: 34px; }
+  .clave__num     { font-size: 34px; letter-spacing: .08em; }
+  .palabra__val   { font-size: 30px; }
+  .contador__num  { font-size: 38px; }
+  .resumen__va--cifra { font-size: 28px; }
+  .cuerpo { padding-left: var(--bc-esp-3); padding-right: var(--bc-esp-3); }
+  .enc    { padding-left: var(--bc-esp-3); padding-right: var(--bc-esp-3); }
+  .arcos  { width: 230px; height: 108px; }
+}
+
+/* En táctil no existe :hover. Ningún estado depende de él —
+   los estados usan :active y :focus-visible, que sí existen. */
+@media (hover: none) {
+  .accion:active, .btn--primario:active { transition: none; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="escenario">
+
+  <div class="escenario__cab">
+    <h1 class="escenario__titulo">Lo justo — v2 · los casos límite</h1>
+    <p class="escenario__nota">
+      Los 18 casos de la sección 4, sobre la calibración de v1a. Cada fallo trae
+      <strong>qué pasó, de quién fue y qué sigue</strong>, en ese orden y marcado.
+      Flechas del teclado para recorrer.
+    </p>
+  </div>
+
+  <details class="caja-mando" id="cajaMando">
+    <summary>Ir a una pantalla</summary>
+    <nav class="mando" id="mando" aria-label="Ir a una pantalla"></nav>
+  </details>
+
+  <div class="tel">
+    <div class="tel__lienzo lo-justo" id="lienzo">
+
+      <!-- ====================================================
+           P1 — LA VUELTA DESPUÉS DE LA AUSENCIA
+           La pantalla más importante. Prueba la agencia.
+           ==================================================== -->
+      <section class="pantalla" id="p1" data-activa data-titulo="P1 · La vuelta" aria-labelledby="p1t">
+        <!-- Componente 13: arcos de marca. Posicionados, no ocupan espacio en el flujo. -->
+        <svg class="arcos" viewBox="0 0 280 130" aria-hidden="true" focusable="false">
+          <g fill="none" stroke-width="13" stroke-linecap="round">
+            <path d="M 190 -40 A 100 100 0 0 1 290 60"   stroke="var(--bc-amarillo)"/>
+            <path d="M 158 -40 A 132 132 0 0 1 290 92"   stroke="var(--bc-coral)"/>
+            <path d="M 126 -40 A 164 164 0 0 1 290 124"  stroke="var(--bc-purpura)"/>
+            <path d="M  94 -40 A 196 196 0 0 1 290 156"  stroke="var(--bc-turquesa)"/>
+          </g>
+        </svg>
+
+        <div class="cuerpo cuerpo--p1">
+          <p class="antetitulo">Mientras no estabas</p>
+          <h1 class="saludo" id="p1t">Hola de nuevo</h1>
+
+          <div class="agente agente--explica">
+            <span class="agente__marca" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2.4" stroke-linecap="round">
+                <path d="M2 8c3-3 5 3 8 0s5 3 8 0"/><path d="M2 15c3-3 5 3 8 0s5 3 8 0"/>
+              </svg>
+            </span>
+            <div>
+              <p class="agente__texto">El jueves quedaste a mitad de la activación.</p>
+              <p class="agente__texto">
+                Vi que el código no te llegaba porque tu operador bloqueaba nuestros mensajes.
+                <strong>Dejé lista otra ruta: sale por WhatsApp cuando tú lo pidas.</strong>
+              </p>
+              <p class="agente__bitacora">
+                <b>Jueves, 7:13 p.m.</b>
+                No moví plata
+              </p>
+            </div>
+          </div>
+
+
+          <button class="btn btn--primario" data-ir="p1b">Mándamelo por WhatsApp</button>
+          <button class="btn btn--secundario" data-ir="p1b">Que me llame alguien</button>
+          <button class="btn btn--texto" data-ir="p5">Ver qué más hice</button>
+
+          <p class="sello">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-gris-texto-2)" stroke-width="2" aria-hidden="true">
+              <path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3z"/>
+            </svg>
+            <span>Nunca te vamos a pedir tus claves.</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ====================================================
+           P1b — EL ACUSE, DESPUÉS DE QUE ELLA LO PIDIÓ
+           El envío solo ocurre aquí: lo disparó ella. Antes de este
+           punto el agente no mandó nada a ningún lado.
+           ==================================================== -->
+      <section class="pantalla" id="p1b" data-titulo="P1b · Ya te lo mandé" data-grupo="Flujo base" aria-labelledby="p1bt">
+        <div class="enc">
+          <button class="volver" data-volver><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg> Volver</button>
+          <p class="migaja">Activación &middot; Paso 3 de 4</p>
+        </div>
+        <div class="cuerpo">
+          <h1 id="p1bt">Ya te lo mandé</h1>
+          <div class="agente agente--exito"><span class="agente__marca" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2.4" stroke-linecap="round"><path d="M2 8c3-3 5 3 8 0s5 3 8 0"/><path d="M2 15c3-3 5 3 8 0s5 3 8 0"/></svg></span><div>
+            <p class="agente__texto">Lo mandé por WhatsApp ahora, <strong>porque tú lo pediste</strong>.</p>
+            <p class="agente__texto">Llega de Bancolombia. Si no aparece en un minuto, te lo mando otra vez.</p>
+            <p class="agente__bitacora"><b>Hoy, 9:03 a.m.</b>
+                No moví plata</p>
+          </div></div>
+          <button class="btn btn--primario" data-ir="p2">Seguir donde iba</button>
+          <button class="btn btn--texto" data-ir="p1">Todavía no me llega</button>
+          <p class="sello"><svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-gris-texto-2)" stroke-width="2" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3z"/></svg><span>Nunca te vamos a pedir tus claves. Puedes verificar este mensaje en la app.</span></p>
+        </div>
+      </section>
+
+      <!-- ====================================================
+           P2 — EL LÍMITE DE CANAL
+           ==================================================== -->
+      <section class="pantalla" id="p2" data-titulo="P2 · El límite" aria-labelledby="p2t">
+        <div class="enc">
+          <button class="volver" data-volver>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+            Volver
+          </button>
+          <p class="migaja">Paso 1 de 2</p>
+        </div>
+
+        <div class="cuerpo">
+          <h1 id="p2t">¿Cuánta plata dejas a la mano?</h1>
+          <p>Solo esto se mueve desde el celular. El resto sigue siendo tuyo, como siempre.</p>
+
+          <div class="tarjeta tarjeta--destacada">
+            <p class="etiqueta">En el celular</p>
+            <p class="cifra">$ 300.000</p>
+          </div>
+
+          <div class="tarjeta">
+            <p class="etiqueta">Guardado</p>
+            <p class="cifra cifra--media">$ 2.400.000</p>
+            <p class="nota">Lo mueves en la sucursal o en un cajero.</p>
+          </div>
+
+          <div class="agente">
+            <span class="agente__marca" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2.4" stroke-linecap="round">
+                <path d="M2 8c3-3 5 3 8 0s5 3 8 0"/><path d="M2 15c3-3 5 3 8 0s5 3 8 0"/>
+              </svg>
+            </span>
+            <div>
+              <p class="agente__texto">
+                Empecé con $ 300.000 porque es lo que sueles retirar. Puedes cambiarlo cuando quieras.
+              </p>
+              <p class="agente__bitacora">
+                <b>Hoy, 9:02 a.m.</b>
+                No moví plata
+              </p>
+            </div>
+          </div>
+
+          <button class="btn btn--primario" data-ir="p3">Así está bien</button>
+          <button class="btn btn--texto" data-ir="p3">Prefiero otro monto</button>
+        </div>
+      </section>
+
+      <!-- ====================================================
+           P3 — INICIO
+           ==================================================== -->
+      <section class="pantalla" id="p3" data-titulo="P3 · Inicio" aria-labelledby="p3t">
+        <div class="enc enc--negro">
+          <span class="marca">
+            <svg class="marca__glifo" viewBox="0 0 24 24" fill="none" stroke="var(--bc-amarillo)" stroke-width="2.6" stroke-linecap="round" aria-hidden="true">
+              <path d="M2 8c3-3 5 3 8 0s5 3 8 0"/><path d="M2 15c3-3 5 3 8 0s5 3 8 0"/>
+            </svg>
+            Bancolombia
+          </span>
+          <span class="migaja migaja--claro">Lo justo</span>
+        </div>
+
+        <div class="cuerpo cuerpo--con-nav">
+          <h1 class="saludo" id="p3t">Hola, Marta</h1>
+
+          <div class="tarjeta tarjeta--saldo">
+            <p class="etiqueta">En el celular</p>
+            <p class="cifra">$ 300.000</p>
+            <p class="nota">Esto es lo que mueves desde aquí.</p>
+          </div>
+
+          <div class="fila-sec">
+            <div class="fila-sec__linea">
+              <p class="etiqueta">Guardado</p>
+              <p class="cifra cifra--chica">$ 2.400.000</p>
+            </div>
+            <p class="nota">Lo mueves en la sucursal o en un cajero.</p>
+          </div>
+
+          <h2 class="h-seccion">¿Qué vas a hacer?</h2>
+
+          <button class="accion" data-ir="p3b">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+            Enviar plata
+            <svg class="accion__flecha" viewBox="0 0 24 24" fill="none" stroke="var(--bc-gris-texto-2)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+
+          <button class="accion" data-ir="p3b">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M4 10h16"/><path d="M8 15h4"/></svg>
+            Pagar un recibo
+            <svg class="accion__flecha" viewBox="0 0 24 24" fill="none" stroke="var(--bc-gris-texto-2)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+
+          <button class="accion" data-ir="p5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14v16H5z"/><path d="M9 9h6"/><path d="M9 13h6"/><path d="M9 17h3"/></svg>
+            Lo que hice por ti
+            <svg class="accion__flecha" viewBox="0 0 24 24" fill="none" stroke="var(--bc-gris-texto-2)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+        </div>
+
+        <nav class="nav" aria-label="Principal">
+          <button aria-current="page" data-ir="p3">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 9-7 9 7"/><path d="M6 10v10h12V10"/></svg>
+            Inicio
+          </button>
+          <button data-ir="p5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14v16H5z"/><path d="M9 9h6"/><path d="M9 13h6"/></svg>
+            Lo que hice
+          </button>
+          <button data-ir="p6">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3z"/></svg>
+            Seguridad
+          </button>
+        </nav>
+      </section>
+
+      <!-- ====================================================
+           P3b — ELEGIR DESTINATARIO Y MONTO
+           [AGREGADA] Tejido conectivo: sin esto P4 no es alcanzable.
+           ==================================================== -->
+      <section class="pantalla" id="p3b" data-titulo="P3b · Enviar" aria-labelledby="p3bt">
+        <div class="enc">
+          <button class="volver" data-volver>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+            Volver
+          </button>
+          <p class="migaja">Enviar plata · Paso 1 de 2</p>
+        </div>
+
+        <div class="cuerpo">
+          <h1 id="p3bt">¿A quién le envías?</h1>
+
+          <div class="campo">
+            <label for="a-quien">Nombre o número de cuenta</label>
+            <p class="campo__ayuda">Sin puntos ni comas.</p>
+            <input id="a-quien" type="text" value="María Restrepo" autocomplete="off">
+          </div>
+
+          <div class="campo">
+            <label for="cuanto">¿Cuánto?</label>
+            <p class="campo__ayuda">Desde el celular puedes mover hasta $ 300.000.</p>
+            <input id="cuanto" type="text" inputmode="numeric" value="$ 80.000">
+          </div>
+
+          <button class="btn btn--primario" data-ir="p4">Continuar</button>
+        </div>
+      </section>
+
+      <!-- ====================================================
+           P4 — CONFIRMACIÓN ANTES DE MOVER PLATA
+           Nada más en pantalla. Sin nav, sin ayuda, sin promociones.
+           ==================================================== -->
+      <section class="pantalla" id="p4" data-titulo="P4 · Confirmación" aria-labelledby="p4t">
+        <div class="enc">
+          <button class="volver" data-volver>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+            Volver
+          </button>
+          <p class="migaja">Enviar plata · Paso 2 de 2</p>
+        </div>
+
+        <div class="cuerpo">
+          <h1 id="p4t">Esto es lo que va a pasar</h1>
+
+          <div class="resumen">
+            <div class="resumen__fila">
+              <p class="resumen__et">Para</p>
+              <p class="resumen__va">María Restrepo<span class="resumen__sec">Ahorros ···· 4471</span></p>
+            </div>
+            <div class="resumen__fila">
+              <p class="resumen__et">Monto</p>
+              <p class="resumen__va resumen__va--cifra">$ 80.000</p>
+            </div>
+            <div class="resumen__fila">
+              <p class="resumen__et">Costo</p>
+              <p class="resumen__va">$ 0</p>
+            </div>
+          </div>
+
+          <div class="agente">
+            <span class="agente__marca" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2.4" stroke-linecap="round">
+                <path d="M2 8c3-3 5 3 8 0s5 3 8 0"/><path d="M2 15c3-3 5 3 8 0s5 3 8 0"/>
+              </svg>
+            </span>
+            <div>
+              <p class="agente__texto">
+                Preparé la transferencia. <strong>Mover plata siempre te lo pregunto</strong>, sin importar el monto.
+              </p>
+              <p class="agente__bitacora">
+                <b>Hoy, 9:06 a.m.</b>
+                No moví plata
+              </p>
+            </div>
+          </div>
+
+          <button class="btn btn--primario" data-ir="p4b">Sí, enviar</button>
+          <button class="btn btn--secundario" data-volver>Volver a revisar</button>
+        </div>
+      </section>
+
+      <!-- ====================================================
+           P4b — COMPROBANTE
+           [AGREGADA] Componente 6. Persona 6: "queda uno más tranquilo
+           de tener como la copia de lo que uno hizo".
+           ==================================================== -->
+      <section class="pantalla" id="p4b" data-titulo="P4b · Comprobante" aria-labelledby="p4bt">
+        <div class="enc">
+          <button class="volver" data-ir="p3">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+            Ir al inicio
+          </button>
+        </div>
+
+        <div class="cuerpo">
+          <h1 id="p4bt">La plata salió</h1>
+
+          <div class="comprobante">
+            <p class="comprobante__num">Comprobante 4471-2026-0810</p>
+            <div class="resumen resumen--pegado">
+              <div class="resumen__fila"><p class="resumen__et">Para</p><p class="resumen__va">María Restrepo</p></div>
+              <div class="resumen__fila"><p class="resumen__et">Monto</p><p class="resumen__va resumen__va--cifra">$ 80.000</p></div>
+              <div class="resumen__fila"><p class="resumen__et">Cuándo</p><p class="resumen__va resumen__va--sec">10 ago 2026, 9:07 a.m.</p></div>
+              <div class="resumen__fila"><p class="resumen__et">Costo</p><p class="resumen__va resumen__va--sec">$ 0</p></div>
+            </div>
+            <div class="dentado" aria-hidden="true"></div>
+          </div>
+
+          <div class="agente agente--exito">
+            <span class="agente__marca" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2.4" stroke-linecap="round">
+                <path d="M2 8c3-3 5 3 8 0s5 3 8 0"/><path d="M2 15c3-3 5 3 8 0s5 3 8 0"/>
+              </svg>
+            </span>
+            <div>
+              <p class="agente__texto">
+                Guardé el comprobante en tu teléfono. Con ese número te lo imprimen en cualquier sucursal.
+              </p>
+              <p class="agente__bitacora">
+                <b>Hoy, 9:07 a.m.</b>
+                <b>Moví $ 80.000</b>
+              </p>
+            </div>
+          </div>
+
+          <button class="btn btn--primario" data-ir="p3">Listo</button>
+          <button class="btn btn--secundario">Compartir el comprobante</button>
+        </div>
+      </section>
+
+      <!-- ====================================================
+           P5 — LO QUE HICE POR TI
+           ==================================================== -->
+      <section class="pantalla" id="p5" data-titulo="P5 · Lo que hice" aria-labelledby="p5t">
+        <div class="enc">
+          <button class="volver" data-volver>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+            Volver
+          </button>
+        </div>
+
+        <div class="cuerpo cuerpo--con-nav">
+          <h1 id="p5t">Lo que hice por ti</h1>
+          <p>Todo lo que hice sin que me lo pidieras queda aquí.</p>
+
+          <p class="dia">Jueves 7 de agosto</p>
+          <ul class="registro">
+            <li>
+              <p class="registro__hora">7:12 p.m.</p>
+              <p class="registro__que">Vi que el código no te llegó. Tu operador estaba bloqueando nuestros mensajes.</p>
+              <span class="marbete">No moví plata</span>
+            </li>
+            <li>
+              <p class="registro__hora">7:13 p.m.</p>
+              <p class="registro__que">Dejé lista otra ruta para el código: WhatsApp.</p>
+              <span class="marbete">No moví plata</span>
+            </li>
+            <li>
+              <p class="registro__hora">7:13 p.m.</p>
+              <p class="registro__que">Guardé dónde ibas para que no empezaras de cero.</p>
+              <span class="marbete">No moví plata</span>
+            </li>
+          </ul>
+
+          <p class="dia">Hoy, 10 de agosto</p>
+          <ul class="registro">
+            <li>
+              <p class="registro__hora">9:04 a.m.</p>
+              <p class="registro__que">Guardé a María Restrepo para la próxima vez.</p>
+              <span class="marbete">No moví plata</span>
+            </li>
+            <li>
+              <p class="registro__hora">9:07 a.m.</p>
+              <p class="registro__que">Enviaste $ 80.000 a María Restrepo. Tú lo confirmaste.</p>
+              <span class="marbete marbete--plata">Moví $ 80.000</span>
+            </li>
+          </ul>
+
+          <button class="btn btn--secundario btn--separado" data-ir="p6">Ver qué puedo hacer solo</button>
+        </div>
+
+        <nav class="nav" aria-label="Principal">
+          <button data-ir="p3">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 9-7 9 7"/><path d="M6 10v10h12V10"/></svg>
+            Inicio
+          </button>
+          <button aria-current="page" data-ir="p5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14v16H5z"/><path d="M9 9h6"/><path d="M9 13h6"/></svg>
+            Lo que hice
+          </button>
+          <button data-ir="p6">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3z"/></svg>
+            Seguridad
+          </button>
+        </nav>
+      </section>
+
+      <!-- ====================================================
+           P6 — LOS LÍMITES DE LA AUTONOMÍA
+           ==================================================== -->
+      <section class="pantalla" id="p6" data-titulo="P6 · Los límites" aria-labelledby="p6t">
+        <div class="enc">
+          <button class="volver" data-volver>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+            Volver
+          </button>
+        </div>
+
+        <div class="cuerpo cuerpo--con-nav">
+          <h1 id="p6t">Qué hago solo y qué te pregunto</h1>
+
+          <div class="titulo-lista">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-turquesa-oscuro)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            <h2>Lo hago solo</h2>
+          </div>
+          <ul class="limites limites--solo">
+            <li>Buscar otra forma de mandarte un código si falla.</li>
+            <li>Guardar dónde quedaste.</li>
+            <li>Avisarte si algo no salió.</li>
+          </ul>
+
+          <div class="titulo-lista">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8v5"/><circle cx="12" cy="16.5" r=".6" fill="var(--bc-carbon)"/><circle cx="12" cy="12" r="9"/></svg>
+            <h2>Siempre te pregunto</h2>
+          </div>
+          <ul class="limites limites--pregunto">
+            <li>Mover plata, sin importar el monto.</li>
+            <li>Subir tu límite del celular.</li>
+            <li>Agregar una cuenta nueva.</li>
+          </ul>
+
+          <div class="agente">
+            <span class="agente__marca" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2.4" stroke-linecap="round">
+                <path d="M2 8c3-3 5 3 8 0s5 3 8 0"/><path d="M2 15c3-3 5 3 8 0s5 3 8 0"/>
+              </svg>
+            </span>
+            <div>
+              <p class="agente__texto">
+                <strong>Nunca te voy a escribir por fuera de la app ni te voy a pedir tus claves.</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <nav class="nav" aria-label="Principal">
+          <button data-ir="p3">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 9-7 9 7"/><path d="M6 10v10h12V10"/></svg>
+            Inicio
+          </button>
+          <button data-ir="p5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14v16H5z"/><path d="M9 9h6"/><path d="M9 13h6"/></svg>
+            Lo que hice
+          </button>
+          <button aria-current="page" data-ir="p6">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3z"/></svg>
+            Seguridad
+          </button>
+        </nav>
+      </section>
+
+      <section class="pantalla" id="a1" data-titulo="A1 · El código no llega" data-grupo="Código" aria-labelledby="a1t">
+        <div class="enc">
+          <button class="volver" data-volver><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg> Volver</button>
+          <p class="migaja">Activación · Paso 3 de 4</p>
+        </div>
+        <div class="cuerpo">
+          <h1 id="a1t">El código no te llegó</h1>
+          <div class="agente agente--explica"><span class="agente__marca" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2.4" stroke-linecap="round"><path d="M2 8c3-3 5 3 8 0s5 3 8 0"/><path d="M2 15c3-3 5 3 8 0s5 3 8 0"/></svg></span><div>
+            <dl class="tres-partes">
+              <dt>Qué pasó</dt><dd>Te mandamos el código tres veces y ninguno entró.</dd>
+              <dt>De quién fue</dt><dd><strong>Nuestro.</strong> Tu operador está bloqueando los mensajes del banco.</dd>
+              <dt>Qué sigue</dt><dd>Dejé lista otra ruta. Sale por WhatsApp apenas toques el botón.</dd>
+            </dl><p class="agente__bitacora"><b>Hoy, 7:13 p.m.</b> No moví plata</p>
+          </div></div>
+          <button class="btn btn--primario" data-ir="p1b">Mándamelo por WhatsApp</button>
+          <button class="btn btn--secundario">Prefiero que me llamen</button>
+          <p class="sello"><svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-gris-texto-2)" stroke-width="2" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3z"/></svg><span>Nunca te vamos a pedir tus claves. Puedes verificar este mensaje en la app.</span></p>
+        </div>
+      </section>
+
+      <section class="pantalla" id="a2" data-titulo="A2 · Llegó expirado" data-grupo="Código" aria-labelledby="a2t">
+        <div class="enc">
+          <button class="volver" data-volver><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg> Volver</button>
+          <p class="migaja">Activación · Paso 3 de 4</p>
+        </div>
+        <div class="cuerpo">
+          <h1 id="a2t">Ese código ya venció</h1>
+          <div class="agente agente--explica"><span class="agente__marca" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2.4" stroke-linecap="round"><path d="M2 8c3-3 5 3 8 0s5 3 8 0"/><path d="M2 15c3-3 5 3 8 0s5 3 8 0"/></svg></span><div>
+            <dl class="tres-partes">
+              <dt>Qué pasó</dt><dd>El código que te llegó vencía a los 10 minutos y llegó tarde.</dd>
+              <dt>De quién fue</dt><dd><strong>Nuestro.</strong> La demora fue del envío, no tuya.</dd>
+              <dt>Qué sigue</dt><dd>Preparé uno nuevo y lo dejé aquí abajo. No salió ningún mensaje.</dd>
+            </dl><p class="agente__bitacora"><b>Hoy, 7:24 p.m.</b> No moví plata</p>
+          </div></div>
+          <div class="clave">
+            <p class="clave__et">Tu código nuevo, aquí mismo</p>
+            <p class="clave__num">316 145</p>
+            <p class="clave__tiempo">Vence en 9 minutos <span class="clave__barra"><span style="width:90%"></span></span></p>
+          </div>
+          <div class="agente "><span class="agente__marca" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2.4" stroke-linecap="round"><path d="M2 8c3-3 5 3 8 0s5 3 8 0"/><path d="M2 15c3-3 5 3 8 0s5 3 8 0"/></svg></span><div><p class="agente__texto">Ese número cambia cada minuto. Es tu clave de seguridad.</p><p class="agente__texto"><strong>El banco nunca te la va a pedir por teléfono.</strong></p></div></div>
+          <button class="btn btn--primario" data-ir="a3">Ya lo escribí</button>
+        </div>
+      </section>
+
+      <section class="pantalla" id="a3" data-titulo="A3 · Código equivocado" data-grupo="Código" aria-labelledby="a3t">
+        <div class="enc">
+          <button class="volver" data-volver><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg> Volver</button>
+          <p class="migaja">Activación · Paso 3 de 4</p>
+        </div>
+        <div class="cuerpo">
+          <h1 id="a3t">Ese no es el código</h1>
+          <div class="campo">
+            <label for="cod">Código de 6 dígitos</label>
+            <p class="campo__ayuda">Está en el mensaje de WhatsApp que te llegó.</p>
+            <input id="cod" class="campo--revisar" type="text" inputmode="numeric" value="316 199">
+          </div>
+          <div class="aviso aviso--neutro">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><circle cx="12" cy="16.4" r=".7" fill="var(--bc-carbon)"/></svg>
+            <div><p>Ese no es. <strong>Te quedan dos intentos.</strong></p>
+            <p class="nota">Revisa que sean los seis dígitos del último mensaje.</p></div>
+          </div>
+          <button class="btn btn--primario" data-ir="a4">Probar otra vez</button>
+          <button class="btn btn--secundario">Mándame otro código</button>
+        </div>
+      </section>
+
+      <section class="pantalla" id="a4" data-titulo="A4 · Tercer intento: bloqueo" data-grupo="Código" aria-labelledby="a4t">
+        <div class="enc">
+          <button class="volver" data-volver><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg> Volver</button>
+          <p class="migaja">Activación</p>
+        </div>
+        <div class="cuerpo">
+          <h1 id="a4t">Bloqueé la clave por seguridad</h1>
+          <div class="agente agente--explica"><span class="agente__marca" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2.4" stroke-linecap="round"><path d="M2 8c3-3 5 3 8 0s5 3 8 0"/><path d="M2 15c3-3 5 3 8 0s5 3 8 0"/></svg></span><div>
+            <dl class="tres-partes">
+              <dt>Qué pasó</dt><dd>Se escribieron tres códigos equivocados seguidos.</dd>
+              <dt>De quién fue</dt><dd>De nadie. Es la regla de seguridad, y la dejo puesta.</dd>
+              <dt>Qué sigue</dt><dd>El bloqueo dura <strong>30 minutos</strong>. A las 8:05 p.m. puedes volver a entrar.</dd>
+            </dl><p class="agente__bitacora"><b>Hoy, 7:35 p.m.</b> No moví plata</p>
+          </div></div>
+          <div class="agente "><span class="agente__marca" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2.4" stroke-linecap="round"><path d="M2 8c3-3 5 3 8 0s5 3 8 0"/><path d="M2 15c3-3 5 3 8 0s5 3 8 0"/></svg></span><div><p class="agente__texto">Guardé dónde ibas. Cuando vuelvas, sigues en el mismo paso.</p><p class="agente__texto">Si no quieres esperar, en la sucursal te lo quitan de una.</p></div></div>
+          <div class="salidas">
+            <p class="salidas__t">Tres formas de salir de aquí</p>
+            <ol class="lista-num">
+              <li>Esperar 30 minutos y volver a intentar.</li>
+              <li>Ir a una sucursal con tu documento.</li>
+              <li>Llamar a la línea del banco desde el número de la tarjeta.</li>
+            </ol>
+          </div>
+          <button class="btn btn--primario">Ver dónde queda la sucursal más cerca</button>
+          <p class="sello"><svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-gris-texto-2)" stroke-width="2" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3z"/></svg><span>Si alguien te llama ahora ofreciéndote desbloquearla, no es del banco.</span></p>
+        </div>
+      </section>
+
+      <section class="pantalla" id="a5" data-titulo="A5 · La sesión va a expirar" data-grupo="Código" aria-labelledby="a5t">
+        <div class="enc">
+          <button class="volver" data-volver><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg> Volver</button>
+          <span></span>
+        </div>
+        <div class="cuerpo">
+          <h1 id="a5t">Voy a cerrar la sesión</h1>
+          <div class="agente "><span class="agente__marca" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2.4" stroke-linecap="round"><path d="M2 8c3-3 5 3 8 0s5 3 8 0"/><path d="M2 15c3-3 5 3 8 0s5 3 8 0"/></svg></span><div><p class="agente__texto">Llevas 9 minutos sin tocar nada. Por seguridad cierro a los 10.</p><p class="agente__texto"><strong>Ya guardé dónde vas.</strong> Nada se pierde si se cierra.</p><p class="agente__bitacora"><b>Hoy, 9:12 a.m.</b> No moví plata</p></div></div>
+          <p class="contador"><span class="contador__num">58</span> segundos</p>
+          <button class="btn btn--primario" data-ir="a6">Sigo aquí</button>
+          <button class="btn btn--secundario">Ciérrala</button>
+        </div>
+      </section>
+
+      <section class="pantalla" id="a6" data-titulo="A6 · Volviste, retomo" data-grupo="Código" aria-labelledby="a6t">
+        <div class="enc">
+          <button class="volver" data-volver><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg> Volver</button>
+          <span></span>
+        </div>
+        <div class="cuerpo">
+          <h1 id="a6t">Seguimos donde ibas</h1>
+          <div class="agente agente--exito"><span class="agente__marca" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2.4" stroke-linecap="round"><path d="M2 8c3-3 5 3 8 0s5 3 8 0"/><path d="M2 15c3-3 5 3 8 0s5 3 8 0"/></svg></span><div><p class="agente__texto">La sesión se cerró sola a las 9:13. <strong>Te avisé antes.</strong></p><p class="agente__texto">Guardé el paso 3 completo. No empiezas de cero.</p><p class="agente__bitacora"><b>Hoy, 9:13 a.m.</b> No moví plata</p></div></div>
+          <div class="tarjeta">
+            <p class="etiqueta">Ibas en</p>
+            <p class="paso">Activación · Paso 3 de 4</p>
+            <p class="nota">Confirmar el código que te llegó por WhatsApp.</p>
+          </div>
+          <button class="btn btn--primario" data-ir="a3">Seguir donde iba</button>
+        </div>
+      </section>
+
+      <section class="pantalla" id="a7" data-titulo="A7 · Cambió de teléfono" data-grupo="Código" aria-labelledby="a7t">
+        <div class="enc">
+          <button class="volver" data-volver><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg> Volver</button>
+          <span></span>
+        </div>
+        <div class="cuerpo">
+          <h1 id="a7t">Este teléfono es nuevo</h1>
+          <div class="agente agente--explica"><span class="agente__marca" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2.4" stroke-linecap="round"><path d="M2 8c3-3 5 3 8 0s5 3 8 0"/><path d="M2 15c3-3 5 3 8 0s5 3 8 0"/></svg></span><div>
+            <dl class="tres-partes">
+              <dt>Qué pasó</dt><dd>Estás entrando desde un teléfono que no habíamos visto.</dd>
+              <dt>De quién fue</dt><dd>De nadie. Es una comprobación que hacemos siempre.</dd>
+              <dt>Qué sigue</dt><dd>Hay dos caminos y los dos sirven. Escoge el que te quede mejor.</dd>
+            </dl><p class="agente__bitacora"><b>Hoy, 10:02 a.m.</b> No moví plata</p>
+          </div></div>
+          <div class="salidas">
+            <ol class="lista-num">
+              <li><strong>Desde aquí.</strong> Te mando un código al número que ya tenías registrado.</li>
+              <li><strong>En la sucursal.</strong> Con tu documento, un asesor lo autoriza en el momento.</li>
+            </ol>
+          </div>
+          <div class="agente "><span class="agente__marca" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2.4" stroke-linecap="round"><path d="M2 8c3-3 5 3 8 0s5 3 8 0"/><path d="M2 15c3-3 5 3 8 0s5 3 8 0"/></svg></span><div><p class="agente__texto">Mientras tanto dejé tu límite del celular en $ 0. Nada se puede mover.</p><p class="agente__bitacora"><b>Hoy, 10:02 a.m.</b> No moví plata</p></div></div>
+          <button class="btn btn--primario" data-ir="a1">Mándame el código al número de antes</button>
+          <button class="btn btn--secundario" data-ir="e4">Prefiero ir a la sucursal</button>
+        </div>
+      </section>
+
+      <section class="pantalla" id="b1" data-titulo="B1 · Más que el límite" data-grupo="Dinero" aria-labelledby="b1t">
+        <div class="enc">
+          <button class="volver" data-volver><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg> Volver</button>
+          <p class="migaja">Enviar plata</p>
+        </div>
+        <div class="cuerpo">
+          <h1 id="b1t">Eso pasa tu límite del celular</h1>
+          <div class="comparar">
+            <div class="comparar__fila"><p class="etiqueta">Querías enviar</p><p class="cifra cifra--media">$ 450.000</p></div>
+            <div class="comparar__fila comparar__fila--tope"><p class="etiqueta">Tu límite del celular</p><p class="cifra cifra--media">$ 300.000</p></div>
+          </div>
+          <div class="agente "><span class="agente__marca" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2.4" stroke-linecap="round"><path d="M2 8c3-3 5 3 8 0s5 3 8 0"/><path d="M2 15c3-3 5 3 8 0s5 3 8 0"/></svg></span><div><p class="agente__texto">Tú pusiste ese límite. No lo cambio yo solo.</p><p class="agente__texto">Hay tres formas de hacer esto y ninguna es un problema.</p></div></div>
+          <div class="salidas">
+            <ol class="lista-num">
+              <li>Enviar <strong>$ 300.000</strong> ahora y el resto después.</li>
+              <li>Hacerlo completo en la sucursal o en un cajero, hoy mismo.</li>
+              <li>Subir tu límite. Se demora un día.</li>
+            </ol>
+          </div>
+          <button class="btn btn--primario" data-ir="p4">Enviar $ 300.000 ahora</button>
+          <button class="btn btn--secundario" data-ir="b2">Quiero subir mi límite</button>
+        </div>
+      </section>
+
+      <section class="pantalla" id="b2" data-titulo="B2 · Subir el límite" data-grupo="Dinero" aria-labelledby="b2t">
+        <div class="enc">
+          <button class="volver" data-volver><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg> Volver</button>
+          <p class="migaja">Tu límite</p>
+        </div>
+        <div class="cuerpo">
+          <h1 id="b2t">Subir el límite se demora un día</h1>
+          <div class="agente "><span class="agente__marca" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2.4" stroke-linecap="round"><path d="M2 8c3-3 5 3 8 0s5 3 8 0"/><path d="M2 15c3-3 5 3 8 0s5 3 8 0"/></svg></span><div><p class="agente__texto"><strong>Esta demora es a propósito.</strong> No es un trámite lento.</p><p class="agente__texto">Un límite que se sube en el momento no protege de nadie.</p></div></div>
+          <div class="alerta-fraude">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3z"/><path d="M12 9v4"/><circle cx="12" cy="16" r=".7" fill="var(--bc-carbon)"/></svg>
+            <div>
+              <p><strong>Si alguien te está apurando para hacer esto, no es del banco.</strong></p>
+              <p class="nota">Nosotros nunca te vamos a pedir que subas tu límite por teléfono.</p>
+            </div>
+          </div>
+          <div class="resumen">
+            <div class="resumen__fila"><p class="resumen__et">Ahora</p><p class="resumen__va">$ 300.000</p></div>
+            <div class="resumen__fila"><p class="resumen__et">Quedaría en</p><p class="resumen__va resumen__va--cifra">$ 600.000</p></div>
+            <div class="resumen__fila"><p class="resumen__et">Queda listo</p><p class="resumen__va resumen__va--sec">Mañana, 9:30 a.m.</p></div>
+          </div>
+          <button class="btn btn--primario" data-ir="b3">Pedirlo para mañana</button>
+          <button class="btn btn--texto">Ahora no</button>
+        </div>
+      </section>
+
+      <section class="pantalla" id="b3" data-titulo="B3 · La espera de 12 horas" data-grupo="Dinero" aria-labelledby="b3t">
+        <div class="enc">
+          <button class="volver" data-volver><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg> Volver</button>
+          <p class="migaja">Tu límite</p>
+        </div>
+        <div class="cuerpo">
+          <h1 id="b3t">Tu límite sube mañana</h1>
+          <div class="espera">
+            <p class="espera__et">Faltan</p>
+            <p class="espera__num">11 horas y 40 minutos</p>
+            <p class="espera__nota">Mañana a las 9:30 a.m. tu límite queda en $ 600.000.</p>
+          </div>
+          <div class="agente "><span class="agente__marca" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2.4" stroke-linecap="round"><path d="M2 8c3-3 5 3 8 0s5 3 8 0"/><path d="M2 15c3-3 5 3 8 0s5 3 8 0"/></svg></span><div><p class="agente__texto">Cancelar sí es inmediato. Subir es lo único que se demora.</p><p class="agente__texto">Esa diferencia es la que te protege.</p><p class="agente__bitacora"><b>Hoy, 9:31 a.m.</b> No moví plata</p></div></div>
+          <button class="btn btn--secundario">Cancelar la subida</button>
+          <p class="sello"><svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-gris-texto-2)" stroke-width="2" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3z"/></svg><span>Si alguien te llama diciendo que puede acelerarlo, cuelga. No somos nosotros.</span></p>
+        </div>
+      </section>
+
+      <section class="pantalla" id="b4" data-titulo="B4 · Saldo insuficiente" data-grupo="Dinero" aria-labelledby="b4t">
+        <div class="enc">
+          <button class="volver" data-volver><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg> Volver</button>
+          <p class="migaja">Enviar plata</p>
+        </div>
+        <div class="cuerpo">
+          <h1 id="b4t">Te faltan $ 12.400</h1>
+          <div class="comparar">
+            <div class="comparar__fila"><p class="etiqueta">Querías enviar</p><p class="cifra cifra--media">$ 92.400</p></div>
+            <div class="comparar__fila comparar__fila--tope"><p class="etiqueta">Tienes en el celular</p><p class="cifra cifra--media">$ 80.000</p></div>
+          </div>
+          <div class="agente agente--explica"><span class="agente__marca" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2.4" stroke-linecap="round"><path d="M2 8c3-3 5 3 8 0s5 3 8 0"/><path d="M2 15c3-3 5 3 8 0s5 3 8 0"/></svg></span><div>
+            <dl class="tres-partes">
+              <dt>Qué pasó</dt><dd>La cuenta no alcanza para ese monto.</dd>
+              <dt>De quién fue</dt><dd>De nadie. Es lo que hay disponible hoy.</dd>
+              <dt>Qué sigue</dt><dd>Puedes enviar <strong>$ 80.000</strong> ahora, o pasar plata de lo guardado en un cajero.</dd>
+            </dl>
+          </div></div>
+          <button class="btn btn--primario" data-ir="p4">Enviar $ 80.000</button>
+          <button class="btn btn--secundario">Cambiar el monto</button>
+        </div>
+      </section>
+
+      <section class="pantalla" id="b5" data-titulo="B5 · Alguien nuevo" data-grupo="Dinero" aria-labelledby="b5t">
+        <div class="enc">
+          <button class="volver" data-volver><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg> Volver</button>
+          <p class="migaja">Enviar plata · Paso 2 de 2</p>
+        </div>
+        <div class="cuerpo">
+          <h1 id="b5t">Es la primera vez que le envías</h1>
+          <div class="resumen">
+            <div class="resumen__fila"><p class="resumen__et">Para</p><p class="resumen__va">Jorge Betancur<span class="resumen__sec">Ahorros ···· 8812</span></p></div>
+            <div class="resumen__fila"><p class="resumen__et">Monto</p><p class="resumen__va resumen__va--cifra">$ 150.000</p></div>
+          </div>
+          <div class="agente "><span class="agente__marca" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2.4" stroke-linecap="round"><path d="M2 8c3-3 5 3 8 0s5 3 8 0"/><path d="M2 15c3-3 5 3 8 0s5 3 8 0"/></svg></span><div><p class="agente__texto">Nunca le has enviado plata a esta cuenta. Por eso te pregunto dos veces.</p><p class="agente__texto"><strong>Lee el nombre y los cuatro números.</strong> Si no los reconoces, no sigas.</p><p class="agente__bitacora"><b>Hoy, 11:20 a.m.</b> No moví plata</p></div></div>
+          <div class="confirmar-doble">
+            <label class="casilla"><input type="checkbox" id="ck1"> <span>Revisé el nombre y los últimos cuatro números.</span></label>
+          </div>
+          <button class="btn btn--primario" data-ir="p4b">Sí, enviar $ 150.000</button>
+          <button class="btn btn--secundario">Volver a revisar</button>
+        </div>
+      </section>
+
+      <section class="pantalla" id="b6" data-titulo="B6 · Se cayó la conexión" data-grupo="Dinero" aria-labelledby="b6t">
+        <div class="enc">
+          <button class="volver" data-volver><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg> Volver</button>
+          <span></span>
+        </div>
+        <div class="cuerpo">
+          <h1 id="b6t">La plata no salió</h1>
+          <div class="certeza certeza--no">
+            <p class="certeza__t">Tu plata sigue completa</p>
+            <p class="certeza__cifra">$ 300.000</p>
+            <p class="certeza__nota">Lo comprobé contra tu cuenta, no contra este teléfono.</p>
+          </div>
+          <div class="agente agente--explica"><span class="agente__marca" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2.4" stroke-linecap="round"><path d="M2 8c3-3 5 3 8 0s5 3 8 0"/><path d="M2 15c3-3 5 3 8 0s5 3 8 0"/></svg></span><div>
+            <dl class="tres-partes">
+              <dt>Qué pasó</dt><dd>Se cayó la conexión justo cuando ibas a confirmar.</dd>
+              <dt>De quién fue</dt><dd><strong>Nuestro.</strong> El corte fue del lado del banco, no de tu internet.</dd>
+              <dt>Qué sigue</dt><dd>La transferencia <strong>no se hizo</strong>. Nadie recibió nada y no te cobramos nada.</dd>
+            </dl><p class="agente__bitacora"><b>Hoy, 11:22 a.m.</b> No moví plata</p>
+          </div></div>
+          <button class="btn btn--primario" data-ir="p4">Volver a intentar</button>
+          <button class="btn btn--secundario" data-ir="p3">Dejarlo así</button>
+        </div>
+      </section>
+
+      <section class="pantalla" id="b7" data-titulo="B7 · Se cayó, pero sí salió" data-grupo="Dinero" aria-labelledby="b7t">
+        <div class="enc">
+          <button class="volver" data-volver><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg> Volver</button>
+          <span></span>
+        </div>
+        <div class="cuerpo">
+          <h1 id="b7t">La plata sí salió</h1>
+          <div class="certeza certeza--si">
+            <p class="certeza__t">Se envió antes de que se cayera</p>
+            <p class="certeza__cifra">$ 80.000</p>
+            <p class="certeza__nota">A María Restrepo, hoy a las 11:22 a.m.</p>
+          </div>
+          <div class="agente agente--exito"><span class="agente__marca" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2.4" stroke-linecap="round"><path d="M2 8c3-3 5 3 8 0s5 3 8 0"/><path d="M2 15c3-3 5 3 8 0s5 3 8 0"/></svg></span><div><p class="agente__texto">Se cayó la conexión después de enviarla, no antes.</p><p class="agente__texto"><strong>No la mandes otra vez.</strong> Guardé el comprobante.</p><p class="agente__bitacora"><b>Hoy, 11:22 a.m.</b> <b>Moví $ 80.000</b></p></div></div>
+          <button class="btn btn--primario" data-ir="p4b">Ver el comprobante</button>
+        </div>
+      </section>
+
+      <section class="pantalla" id="c1" data-titulo="C1 · Sin internet" data-grupo="Conexión" aria-labelledby="c1t">
+        <div class="enc">
+          <button class="volver" data-volver><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg> Volver</button>
+          <span></span>
+        </div>
+        <div class="cuerpo">
+          <h1 id="c1t">Estás sin internet</h1>
+          <div class="agente agente--explica"><span class="agente__marca" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2.4" stroke-linecap="round"><path d="M2 8c3-3 5 3 8 0s5 3 8 0"/><path d="M2 15c3-3 5 3 8 0s5 3 8 0"/></svg></span><div>
+            <dl class="tres-partes">
+              <dt>Qué pasó</dt><dd>El teléfono no tiene conexión ahora mismo.</dd>
+              <dt>De quién fue</dt><dd>De nadie. Puede ser la señal o el wifi.</dd>
+              <dt>Qué sigue</dt><dd>Tres cosas siguen funcionando sin conexión. Están abajo.</dd>
+            </dl>
+          </div></div>
+          <ul class="lista-simple">
+            <li><strong>Tus comprobantes guardados.</strong> Los últimos 20.</li>
+            <li><strong>Tu palabra de seguridad.</strong> Para revisar si un mensaje es real.</li>
+            <li><strong>Tu límite del celular.</strong> Cuánto alcanzas desde aquí.</li>
+          </ul>
+          <p class="nota">Mover plata necesita conexión. Nada se pierde mientras tanto.</p>
+          <button class="btn btn--primario">Ver mis comprobantes</button>
+        </div>
+      </section>
+
+      <section class="pantalla" id="c2" data-titulo="C2 · Conexión lenta" data-grupo="Conexión" aria-labelledby="c2t">
+        <div class="enc">
+          <button class="volver" data-volver><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg> Volver</button>
+          <p class="migaja">Enviar plata</p>
+        </div>
+        <div class="cuerpo">
+          <h1 id="c2t">Estoy esperando al banco</h1>
+          <div class="espera espera--activa">
+            <p class="espera__et">Qué estoy esperando</p>
+            <p class="espera__que">Que el banco confirme que la cuenta de María existe.</p>
+            <p class="espera__nota">Llevo 14 segundos. Normalmente tarda 3.</p>
+            <div class="barra" role="progressbar" aria-label="Esperando confirmación del banco"><span></span></div>
+          </div>
+          <div class="agente "><span class="agente__marca" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2.4" stroke-linecap="round"><path d="M2 8c3-3 5 3 8 0s5 3 8 0"/><path d="M2 15c3-3 5 3 8 0s5 3 8 0"/></svg></span><div><p class="agente__texto">Puedes cerrar la app. Guardé dónde vas y sigo esperando.</p><p class="agente__texto">Si a los 60 segundos no contesta, lo cancelo y te lo digo.</p><p class="agente__bitacora"><b>Hoy, 11:19 a.m.</b> No moví plata</p></div></div>
+          <button class="btn btn--secundario" data-ir="p3">Cancelar y volver</button>
+        </div>
+      </section>
+
+      <section class="pantalla" id="c3" data-titulo="C3 · Teléfono lento" data-grupo="Conexión" aria-labelledby="c3t">
+        <div class="enc">
+          <button class="volver" data-volver><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg> Volver</button>
+          <span></span>
+        </div>
+        <div class="cuerpo">
+          <h1 id="c3t">Modo sin animaciones</h1>
+          <div class="agente agente--exito"><span class="agente__marca" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2.4" stroke-linecap="round"><path d="M2 8c3-3 5 3 8 0s5 3 8 0"/><path d="M2 15c3-3 5 3 8 0s5 3 8 0"/></svg></span><div><p class="agente__texto">Vi que tu teléfono venía lento y quité todas las animaciones.</p><p class="agente__texto">Los cambios de pantalla son instantáneos. Nada gira ni se desvanece.</p><p class="agente__bitacora"><b>Hoy, 9:00 a.m.</b> No moví plata</p></div></div>
+          <ul class="lista-simple">
+            <li>Ninguna transición bloquea un botón.</li>
+            <li>Ningún estado depende de una animación para entenderse.</li>
+            <li>Las esperas se cuentan con texto, no con un círculo girando.</li>
+          </ul>
+          <p class="nota">También se activa solo si el sistema pide menos movimiento.</p>
+          <button class="btn btn--primario" data-ir="p3">Dejarlo así</button>
+        </div>
+      </section>
+
+      <section class="pantalla" id="d1" data-titulo="D1 · Llamada sospechosa" data-grupo="Seguridad" aria-labelledby="d1t">
+        <div class="enc">
+          <button class="volver" data-volver><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg> Volver</button>
+          <p class="migaja">Seguridad</p>
+        </div>
+        <div class="cuerpo">
+          <h1 id="d1t">¿Te están llamando ahora?</h1>
+          <div class="alerta-fraude alerta-fraude--grande">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3z"/><path d="M12 9v4"/><circle cx="12" cy="16" r=".7" fill="var(--bc-carbon)"/></svg>
+            <div>
+              <p><strong>Nunca te vamos a pedir tus claves.</strong></p>
+              <p>Ni por teléfono, ni por mensaje, ni por correo. Nunca.</p>
+            </div>
+          </div>
+          <ul class="lista-simple">
+            <li>Saber tu nombre <strong>no prueba nada</strong>. Esos datos se consiguen.</li>
+            <li>Nunca te pedimos que muevas plata "para protegerla".</li>
+            <li>Nunca te apuramos. Si te apuran, no somos nosotros.</li>
+          </ul>
+          <div class="agente "><span class="agente__marca" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2.4" stroke-linecap="round"><path d="M2 8c3-3 5 3 8 0s5 3 8 0"/><path d="M2 15c3-3 5 3 8 0s5 3 8 0"/></svg></span><div><p class="agente__texto">Puedes colgar y llamarnos tú al número de la tarjeta.</p><p class="agente__texto">Si quieres, bloqueo tu celular por 24 horas mientras averiguas.</p></div></div>
+          <button class="btn btn--primario" data-ir="d2">Bloquear mi celular por 24 horas</button>
+        </div>
+      </section>
+
+      <section class="pantalla" id="d2" data-titulo="D2 · Bloqueo preventivo" data-grupo="Seguridad" aria-labelledby="d2t">
+        <div class="enc">
+          <button class="volver" data-volver><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg> Volver</button>
+          <p class="migaja">Seguridad</p>
+        </div>
+        <div class="cuerpo">
+          <h1 id="d2t">Bloqueé tu celular</h1>
+          <div class="agente agente--exito"><span class="agente__marca" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2.4" stroke-linecap="round"><path d="M2 8c3-3 5 3 8 0s5 3 8 0"/><path d="M2 15c3-3 5 3 8 0s5 3 8 0"/></svg></span><div><p class="agente__texto">Dejé tu límite del celular en $ 0 hasta mañana a las 11:30 a.m.</p><p class="agente__texto"><strong>Desde este teléfono no se puede mover nada.</strong> Tu plata sigue completa.</p><p class="agente__bitacora"><b>Hoy, 11:30 a.m.</b> No moví plata</p></div></div>
+          <div class="certeza certeza--no">
+            <p class="certeza__t">Alcance desde el celular</p>
+            <p class="certeza__cifra">$ 0</p>
+            <p class="certeza__nota">En la sucursal y en el cajero sigues moviendo todo, como siempre.</p>
+          </div>
+          <p class="nota">Quitar el bloqueo antes de tiempo solo se puede en una sucursal, con documento.</p>
+          <button class="btn btn--primario" data-ir="p3">Entendido</button>
+        </div>
+      </section>
+
+      <section class="pantalla" id="d3" data-titulo="D3 · ¿Este mensaje es real?" data-grupo="Seguridad" aria-labelledby="d3t">
+        <div class="enc">
+          <button class="volver" data-volver><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg> Volver</button>
+          <p class="migaja">Seguridad</p>
+        </div>
+        <div class="cuerpo">
+          <h1 id="d3t">Revisa si un mensaje es nuestro</h1>
+          <div class="palabra">
+            <p class="palabra__et">Tu palabra</p>
+            <p class="palabra__val">CIRUELA</p>
+            <p class="palabra__nota">La escogiste tú. Todo mensaje nuestro la trae. Ninguno más la sabe.</p>
+          </div>
+          <div class="agente "><span class="agente__marca" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2.4" stroke-linecap="round"><path d="M2 8c3-3 5 3 8 0s5 3 8 0"/><path d="M2 15c3-3 5 3 8 0s5 3 8 0"/></svg></span><div><p class="agente__texto">Si el mensaje no trae <strong>CIRUELA</strong>, no lo mandamos nosotros.</p><p class="agente__texto">Tu nombre no prueba nada: eso lo consigue cualquiera.</p></div></div>
+          <p class="dia">Lo que te mandé, y tú lo pediste</p>
+          <ul class="registro">
+            <li><p class="registro__hora">Hoy, 7:13 p.m.</p><p class="registro__que">Un código de activación que pediste, por WhatsApp.</p><span class="marbete">CIRUELA</span></li>
+            <li><p class="registro__hora">7 de agosto</p><p class="registro__que">Un código de activación que pediste, por mensaje de texto.</p><span class="marbete">CIRUELA</span></li>
+          </ul>
+          <p class="nota">Nada más salió de aquí. Cualquier otro mensaje de estos días no es nuestro.</p>
+          <button class="btn btn--secundario">Cambiar mi palabra</button>
+        </div>
+      </section>
+
+      <section class="pantalla" id="e1" data-titulo="E1 · Retomar dónde iba" data-grupo="La persona" aria-labelledby="e1t">
+        <div class="enc">
+          <button class="volver" data-volver><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg> Volver</button>
+          <span></span>
+        </div>
+        <div class="cuerpo">
+          <h1 id="e1t">Guardé dónde ibas</h1>
+          <div class="tarjeta">
+            <p class="etiqueta">Cerraste aquí</p>
+            <p class="paso">Enviar plata &middot; Paso 2 de 2</p>
+            <p class="nota">Confirmar $ 80.000 a María Restrepo. Nada se envió.</p>
+          </div>
+          <div class="agente"><span class="agente__marca" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2.4" stroke-linecap="round"><path d="M2 8c3-3 5 3 8 0s5 3 8 0"/><path d="M2 15c3-3 5 3 8 0s5 3 8 0"/></svg></span><div>
+            <p class="agente__texto">Guardo el paso exacto en los cinco puntos del camino, no solo en uno.</p>
+            <p class="agente__texto">Cerrar la app nunca te devuelve al principio.</p>
+            <p class="agente__bitacora"><b>Ayer, 6:40 p.m.</b> No moví plata</p>
+          </div></div>
+          <button class="btn btn--primario" data-ir="p4">Seguir donde iba</button>
+          <button class="btn btn--texto" data-ir="p3">Empezar otra cosa</button>
+        </div>
+      </section>
+
+            <section class="pantalla" id="e2" data-titulo="E2 · Volvió después de semanas" data-grupo="La persona" aria-labelledby="e2t">
+        <div class="enc">
+          <button class="volver" data-volver><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg> Volver</button>
+          <span></span>
+        </div>
+        <div class="cuerpo">
+          <h1 id="e2t">Han pasado siete semanas</h1>
+          <div class="agente agente--exito"><span class="agente__marca" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2.4" stroke-linecap="round"><path d="M2 8c3-3 5 3 8 0s5 3 8 0"/><path d="M2 15c3-3 5 3 8 0s5 3 8 0"/></svg></span><div><p class="agente__texto">La última vez entraste el 21 de junio. Dejaste todo en orden.</p><p class="agente__texto">Nada cambió sin ti. Tu límite sigue igual y no se movió plata.</p><p class="agente__bitacora"><b>21 de junio, 4:02 p.m.</b> Última entrada</p></div></div>
+          <div class="resumen">
+            <div class="resumen__fila"><p class="resumen__et">Tu límite del celular</p><p class="resumen__va">$ 300.000</p></div>
+            <div class="resumen__fila"><p class="resumen__et">Movimientos desde el celular</p><p class="resumen__va resumen__va--sec">Ninguno</p></div>
+            <div class="resumen__fila"><p class="resumen__et">Cosas que hice sin ti</p><p class="resumen__va resumen__va--sec">Ninguna</p></div>
+          </div>
+          <p class="nota">Tu pensión siguió llegando normal. Eso no depende de la app.</p>
+          <button class="btn btn--primario" data-ir="p3">Entrar</button>
+          <button class="btn btn--texto" data-ir="p5">Ver todo lo que hice</button>
+        </div>
+      </section>
+
+      <section class="pantalla" id="e3" data-titulo="E3 · Alguien te está ayudando" data-grupo="La persona" aria-labelledby="e3t">
+        <div class="enc">
+          <button class="volver" data-volver><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg> Volver</button>
+          <span></span>
+        </div>
+        <div class="cuerpo">
+          <h1 id="e3t">¿Hay alguien ayudándote?</h1>
+          <div class="agente "><span class="agente__marca" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2.4" stroke-linecap="round"><path d="M2 8c3-3 5 3 8 0s5 3 8 0"/><path d="M2 15c3-3 5 3 8 0s5 3 8 0"/></svg></span><div><p class="agente__texto">Si prendes el modo acompañado, escondo los saldos y los números de cuenta.</p><p class="agente__texto">La otra persona ve los pasos, no tu plata.</p></div></div>
+          <div class="tarjeta tarjeta--saldo">
+            <p class="etiqueta">En el celular</p>
+            <p class="cifra">$ •••.•••</p>
+            <p class="nota">Oculto mientras el modo acompañado esté prendido.</p>
+          </div>
+          <ul class="lista-simple">
+            <li>Se ven los pasos y los botones.</li>
+            <li>No se ven saldos, ni números de cuenta, ni tu palabra.</li>
+            <li>Confirmar una transferencia sigue pidiendo tu clave.</li>
+          </ul>
+          <button class="btn btn--primario" data-ir="p3">Apagar el modo acompañado</button>
+          <p class="sello"><svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-gris-texto-2)" stroke-width="2" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3z"/></svg><span>Nadie que te ayude necesita tu clave. Ni un familiar, ni un asesor.</span></p>
+        </div>
+      </section>
+
+      <section class="pantalla" id="e4" data-titulo="E4 · Prefiere la sucursal" data-grupo="La persona" aria-labelledby="e4t">
+        <div class="enc">
+          <button class="volver" data-volver><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg> Volver</button>
+          <span></span>
+        </div>
+        <div class="cuerpo">
+          <h1 id="e4t">Tu forma de hacerlo funciona</h1>
+          <div class="agente agente--exito"><span class="agente__marca" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="var(--bc-carbon)" stroke-width="2.4" stroke-linecap="round"><path d="M2 8c3-3 5 3 8 0s5 3 8 0"/><path d="M2 15c3-3 5 3 8 0s5 3 8 0"/></svg></span><div><p class="agente__texto">Ir a la sucursal no es un paso atrás. Te rinde y te queda el papel.</p><p class="agente__texto">Dejé lista tu vuelta para que llegues y sea rápido.</p><p class="agente__bitacora"><b>Hoy, 10:05 a.m.</b> No moví plata</p></div></div>
+          <div class="comprobante">
+            <p class="comprobante__num">Turno preparado · 4471-A</p>
+            <div class="resumen resumen--pegado">
+              <div class="resumen__fila"><p class="resumen__et">Qué ibas a hacer</p><p class="resumen__va resumen__va--sec">Enviar $ 80.000 a María Restrepo</p></div>
+              <div class="resumen__fila"><p class="resumen__et">Qué llevar</p><p class="resumen__va resumen__va--sec">Tu documento</p></div>
+            </div>
+            <div class="dentado" aria-hidden="true"></div>
+          </div>
+          <p class="nota">Muestra este número en la sucursal y el asesor ya sabe a qué vas.</p>
+          <button class="btn btn--primario" data-ir="p3">Guardar este turno</button>
+          <button class="btn btn--texto" data-ir="p3">Mejor sigo aquí</button>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var lienzo   = document.getElementById('lienzo');
+  var pantallas = Array.prototype.slice.call(document.querySelectorAll('.pantalla'));
+  var orden    = pantallas.map(function (s) { return s.id; });
+  var pila     = ['p1'];
+
+  /* Barra de mando para presentación — vive fuera del teléfono */
+  var mando = document.getElementById('mando');
+  var grupoActual = null;
+  pantallas.forEach(function (s) {
+    var g = s.dataset.grupo || 'Flujo base';
+    if (g !== grupoActual) {
+      grupoActual = g;
+      var et = document.createElement('span');
+      et.className = 'mando__grupo';
+      et.textContent = g;
+      mando.appendChild(et);
+    }
+    var b = document.createElement('button');
+    b.textContent = s.dataset.titulo;
+    b.dataset.ir = s.id;
+    mando.appendChild(b);
+  });
+
+  function activa() {
+    var a = document.querySelector('.pantalla[data-activa]');
+    return a ? a.id : orden[0];
+  }
+
+  function ir(id, apilar) {
+    var destino = document.getElementById(id);
+    if (!destino) { return; }
+    pantallas.forEach(function (s) { delete s.dataset.activa; });
+    destino.dataset.activa = '';
+    if (apilar !== false && pila[pila.length - 1] !== id) { pila.push(id); }
+    lienzo.scrollTop = 0;
+
+    Array.prototype.forEach.call(mando.children, function (b) {
+      b.setAttribute('aria-current', b.dataset.ir === id ? 'true' : 'false');
+    });
+
+    /* El lector de pantalla debe saber que cambió el contexto */
+    var titulo = destino.querySelector('h1');
+    if (titulo) {
+      titulo.setAttribute('tabindex', '-1');
+      titulo.focus({ preventScroll: true });
+    }
+  }
+
+  function volver() {
+    if (pila.length > 1) { pila.pop(); ir(pila[pila.length - 1], false); }
+  }
+
+  document.addEventListener('click', function (e) {
+    var d = e.target.closest('[data-ir]');
+    if (d) { ir(d.dataset.ir); return; }
+    if (e.target.closest('[data-volver]')) { volver(); }
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.target.tagName === 'INPUT') { return; }
+    var i = orden.indexOf(activa());
+    if (e.key === 'ArrowRight' && i < orden.length - 1) { ir(orden[i + 1]); }
+    if (e.key === 'ArrowLeft'  && i > 0)                { ir(orden[i - 1]); }
+  });
+
+  /* Los cinco puntos de retoma viven en el mando, no dentro del teléfono:
+     son andamiaje para demostrar, no una pantalla de producto. */
+  (function () {
+    var et = document.createElement('span');
+    et.className = 'mando__grupo';
+    et.textContent = 'Retomar desde…';
+    mando.appendChild(et);
+    [['1 · Elegir el límite', 'p2'], ['2 · Escribir el código', 'a3'],
+     ['3 · Elegir a quién', 'p3b'], ['4 · Confirmar el envío', 'p4'],
+     ['5 · Pedir subir el límite', 'b2']].forEach(function (par) {
+      var b = document.createElement('button');
+      b.textContent = par[0]; b.dataset.ir = par[1];
+      mando.appendChild(b);
+    });
+  })();
+
+
+  /* El mando va abierto en escritorio y cerrado en el teléfono,
+     donde la pantalla la necesita la app. */
+  (function () {
+    var caja = document.getElementById('cajaMando');
+    if (!caja) { return; }
+    function ajustar() { caja.open = window.innerWidth >= 780; }
+    ajustar();
+    window.addEventListener('resize', ajustar);
+  })();
+
+  ir('p1', false);
+})();
+</script>
+</body>
+</html>
