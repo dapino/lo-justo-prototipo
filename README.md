@@ -43,8 +43,9 @@ espera. Para estas personas, todo lo que llega sin pedirlo es una estafa, y tien
 
 | Archivo | Qué es |
 |---|---|
+| [`deck.html`](https://dapino.github.io/lo-justo-prototipo/deck.html) | **La presentación.** Once diapositivas: el problema, el hallazgo, la propuesta, y a quién todavía no alcanza. Flechas para navegar, `P` para imprimir a PDF |
 | [`index.html`](https://dapino.github.io/lo-justo-prototipo/) | **El recorrido.** Nueve pantallas: la app de hoy, la vuelta, el código, el límite, el inicio, confirmar, el comprobante, la bitácora y los límites de la autonomía |
-| [`completo.html`](https://dapino.github.io/lo-justo-prototipo/completo.html) | **Los 18 casos límite.** 33 pantallas con todo lo que puede salir mal |
+| [`completo.html`](https://dapino.github.io/lo-justo-prototipo/completo.html) | **Los casos límite.** 33 pantallas, 24 de ellas de cosas que salen mal |
 | [`v1a-base.html`](https://dapino.github.io/lo-justo-prototipo/v1a-base.html) | Calibración A — la densidad elegida |
 | [`v1b-base.html`](https://dapino.github.io/lo-justo-prototipo/v1b-base.html) | Calibración B — lectura más generosa, para comparar |
 
@@ -55,8 +56,9 @@ el marco desaparece y la app ocupa la pantalla.
 
 ## Los casos límite son la prueba, no el relleno
 
-Los 18 casos de la especificación, construidos. Cada mensaje de error trae
-**qué pasó, de quién fue y qué sigue**, en ese orden y con las etiquetas visibles.
+Las 22 situaciones de la especificación, en 24 pantallas — dos de ellas se desdoblan
+porque tienen desenlaces opuestos. Cada mensaje de error trae **qué pasó, de quién fue y
+qué sigue**, en ese orden y con las etiquetas visibles.
 
 | Grupo | Casos |
 |---|---|
