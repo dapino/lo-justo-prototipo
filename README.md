@@ -5,7 +5,8 @@ su banco, algo falló, nadie les explicó qué pasó, y no volvieron a intentar.
 
 **[Abrir el prototipo →](https://dapino.github.io/lo-justo-prototipo/)**
 
-33 pantallas navegables. Un solo archivo, sin dependencias. Abre en el celular.
+Arranca en la app de hoy —21 elementos tocables en la primera vista— y de ahí se entra al
+modo sencillo. Un solo archivo, sin dependencias. Abre en el celular.
 
 ---
 
@@ -42,13 +43,15 @@ espera. Para estas personas, todo lo que llega sin pedirlo es una estafa, y tien
 
 | Archivo | Qué es |
 |---|---|
-| [`index.html`](https://dapino.github.io/lo-justo-prototipo/) | El prototipo. Flujo base de 6 pantallas + los 18 casos límite |
+| [`index.html`](https://dapino.github.io/lo-justo-prototipo/) | **El recorrido.** Nueve pantallas: la app de hoy, la vuelta, el código, el límite, el inicio, confirmar, el comprobante, la bitácora y los límites de la autonomía |
+| [`completo.html`](https://dapino.github.io/lo-justo-prototipo/completo.html) | **Los 18 casos límite.** 33 pantallas con todo lo que puede salir mal |
 | [`v1a-base.html`](https://dapino.github.io/lo-justo-prototipo/v1a-base.html) | Calibración A — la densidad elegida |
 | [`v1b-base.html`](https://dapino.github.io/lo-justo-prototipo/v1b-base.html) | Calibración B — lectura más generosa, para comparar |
 
-En el escritorio hay una barra lateral para saltar a cualquier escenario. En el celular
-el marco desaparece y la app ocupa la pantalla; la barra negra de arriba despliega los
-escenarios.
+El recorrido es para ver la idea en dos minutos. Los casos límite son donde se prueba.
+
+En `completo.html` hay una barra lateral para saltar a cualquier escenario. En el celular
+el marco desaparece y la app ocupa la pantalla.
 
 ## Los casos límite son la prueba, no el relleno
 
