@@ -32,7 +32,7 @@ body{
   width:100%;max-width:420px;height:100dvh;max-height:900px;background:var(--bg);
   position:relative;overflow:hidden;display:flex;flex-direction:column;
 }
-@media(min-width:520px){#app{height:860px;border-radius:32px;box-shadow:0 24px 60px rgba(0,0,0,.16);border:1px solid rgba(0,0,0,.08)}}
+@media(min-width:520px){#app{height:min(860px,calc(100vh - 92px));border-radius:32px;box-shadow:0 24px 60px rgba(0,0,0,.16);border:1px solid rgba(0,0,0,.08)}}
 
 /* ---------- chrome ---------- */
 .bar{display:flex;align-items:center;justify-content:space-between;padding:14px 20px 10px;font-size:13px;font-weight:600;color:var(--cb);flex:none}
@@ -148,8 +148,8 @@ p{font-size:18px;line-height:1.52;color:var(--cb)}
 /* ---------- navegación entre versiones del prototipo ----------
    Vive fuera del teléfono, en el espacio que sobra en escritorio. No toca
    ninguna pantalla: es andamiaje de presentación, no producto. */
-#vers{position:fixed;top:24px;left:24px;display:flex;flex-direction:column;gap:8px;z-index:20;font-size:14px}
-#vers b{font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#8A8C8F;margin-bottom:2px}
+#vers{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;z-index:20;font-size:14px}
+#vers b{display:none}
 #vers a{display:block;padding:9px 16px;border-radius:999px;background:rgba(255,255,255,.82);color:var(--cb);text-decoration:none;font-weight:600;box-shadow:0 1px 3px rgba(44,42,41,.10);transition:background .12s var(--e)}
 #vers a:hover{background:#fff}
 #vers a[aria-current]{background:var(--cb);color:#fff}

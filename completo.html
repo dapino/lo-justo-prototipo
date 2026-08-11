@@ -872,7 +872,11 @@ body {
 
 
 /* Navegación entre versiones del prototipo */
-.vers{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:var(--bc-esp-4)}
+.vers{
+  position:fixed;bottom:18px;left:50%;transform:translateX(-50%);
+  display:flex;flex-wrap:wrap;gap:8px;justify-content:center;z-index:20;
+  box-shadow:0 2px 12px rgba(44,42,41,.14);border-radius:var(--bc-radio-pill);
+}
 .vers a{
   display:inline-block;padding:9px 16px;border-radius:var(--bc-radio-pill);
   background:var(--bc-blanco);color:var(--bc-carbon);text-decoration:none;
